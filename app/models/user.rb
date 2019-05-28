@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    has_one_attached :profile_picture
+    # has_one_attached :profile_picture
 
     def ensure_username_number
         self.username_number = Random.rand(1..999)
