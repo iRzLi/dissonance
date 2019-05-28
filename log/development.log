@@ -2320,3 +2320,25 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 1245ms (Views: 1230.5ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/" for ::1 at 2019-05-28 17:57:14 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/aa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/aa/Desktop/FinalProj/dissonance/app/assets/stylesheets/reset.css.scss to /Users/aa/Desktop/FinalProj/dissonance/app/assets/stylesheets/reset.scss. (called from _app_views_layouts_application_html_erb__995151683631661810_70256498362520 at /Users/aa/Desktop/FinalProj/dissonance/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/aa/Desktop/FinalProj/dissonance/app/assets/stylesheets/reset.css.scss to /Users/aa/Desktop/FinalProj/dissonance/app/assets/stylesheets/reset.scss. (called from _app_views_layouts_application_html_erb__995151683631661810_70256498362520 at /Users/aa/Desktop/FinalProj/dissonance/app/views/layouts/application.html.erb:7)
+Started GET "/" for ::1 at 2019-05-28 17:57:17 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 3711ms (Views: 3701.7ms | ActiveRecord: 7.6ms)
+
+
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 6605ms (Views: 6601.6ms | ActiveRecord: 1.2ms)
+
+
