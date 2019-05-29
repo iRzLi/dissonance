@@ -1,0 +1,106 @@
+.splash{
+    display: grid;
+    grid-template-rows: 60px 250px 650px 300px
+}
+
+.header{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: space-between;
+    min-height: 56px;
+    font-size: 16px;
+}
+
+.header ul {
+    display: flex;
+    align-items: center;
+}
+
+.header ul li {
+    padding: 5px 15px;
+}
+
+.header ul li {
+    padding: 5px 15px;
+}
+
+
+.header ul li:hover {
+    color: #FDFDFD;
+}
+
+.login-link{
+    text-decoration: none;
+    color: #A8A8AA;
+    padding: 5px 10px;
+    border: 2px solid #A8A8AA;
+    border-radius: 20px;
+    font-size:16px;
+}
+
+.login-link:hover {
+    color: #FDFDFD;
+    border: 2px solid #FDFDFD;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.logo i{
+    color: #FDFDFD;
+}
+
+.header-icons{
+    font-size:20px;
+}
+
+.splash-text {
+    margin: 75px 0px 0px 0px;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.splash-text h1 {
+    font-size:36px;
+    font-weight: 700;
+    padding: 20px;
+    color:#FDFDFD;
+}
+
+.splash-text div {
+    padding: 5px;
+}
+
+
+.buttons-div {
+    margin: 50px;
+}
+
+.buttons-div a {
+    margin: 0px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    
+}
+
+.macButton{
+    padding: 15px 50px;
+    background-color: #fff;
+    color:#000;
+}
+
+.browserButton{
+    padding: 15px 20px;
+    background-color: #7289da;
+    color: #fff;
+}
+
+.buttons-div a:hover{
+    position: relative;
+    top: 1px;
+}

@@ -1,12 +1,13 @@
 import React from 'react';
 import HeaderContainer from './header_container';
-
+import SplashTextComponent from './splash_text';
 
 const splash = (props) => {
     return (
-        <div className="splash">Splash
+        <section className="splash">
         <HeaderContainer />
-        </div>
+        <SplashTextComponent />
+        </section>
     );
 };
 

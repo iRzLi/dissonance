@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Header from './header';
+import {logout} from '../actions/session_actions';
 
 
 const msp = state => {
@@ -8,6 +9,12 @@ const msp = state => {
     };
 };
 
+const mdp = dispatch => {
+    return {
+        logout: ()=> dispatch(logout()),
+    };
+};
 
 
-export default connect(msp)(Header);
+
+export default connect(msp,mdp)(Header);

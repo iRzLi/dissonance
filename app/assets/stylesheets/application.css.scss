@@ -16,3 +16,11 @@
 
 
 @import "reset";
+
+#root {
+    background-color:#25252A;
+    color: #A8A8AA;
+    font-family: 'Roboto Slab', serif;
+}
+
+@import "splash";
