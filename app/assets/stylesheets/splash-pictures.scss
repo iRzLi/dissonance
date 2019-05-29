@@ -1,0 +1,207 @@
+/***************************
+    SPLASH PICTURE COMPONENT
+***************************/
+
+.splash-pictures {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display:flex;
+    // justify-content: flex-end;
+    align-items: flex-end;
+    // position: relative;
+}
+
+.wide-screen-pictures{
+    display:flex;
+    align-items: flex-end;
+}
+
+
+.picture {
+    position: absolute;
+}
+
+
+.disk {
+    left: 79%;
+    z-index:1;
+}
+
+.laptop {
+    left: 51%;
+    z-index:2;
+}
+
+.computer {
+    left: 32%;
+    z-index:1;
+}
+
+.floppy-disk {
+    left: 70%;
+    top: 450px;
+    z-index: 0;
+}
+
+.controller {
+    left: 34%;
+    z-index:3;
+}
+
+.phone2 {
+    left: 24%;
+    z-index:2;
+}
+
+.phone1 {
+    left: 14%;
+    z-index:2;
+}
+
+.potion {
+    left: 10%;
+    z-index:1;
+}
+
+.headset {
+    left: 69%;
+    top: 588px;
+    z-index:3;
+}
+
+.box {
+    left: 36%;
+    top: 420px;
+    z-index:0;
+}
+
+.bomb {
+    left:19%;
+    top: 520px;
+}
+
+.coin1 {
+    left:22%;
+    top: 560px;
+    z-index: 1;
+}
+
+.coin2 {
+    left: 55%;
+    top: 365px;
+}
+
+.circle1 {
+    left: 95%;
+    top: 780px;
+}
+
+.circle2 {
+    left: 89%;
+    top: 350px;
+}
+
+.circle3 {
+    left: 64%;
+    top: 430px;
+}
+
+.circle4 {
+    left: 29%;
+    top: 335px;
+}
+
+.circle5 {
+    left: 9%;
+    top: 740px;
+}
+
+.open-circle1 {
+    left: 92%;
+    top: 650px;
+}
+
+.open-circle2 {
+    left:38%;
+    top: 845px;
+}
+
+.open-circle3 {
+    left: 26%;
+    top:390px;
+}
+
+.open-square1 {
+    left:82%;
+    top: 550px;
+}
+
+.open-square2 {
+    left:75%;
+    top: 330px;
+}
+
+.open-square3 {
+    left:53%;
+    top: 850px;
+}
+
+.open-triangle1 {
+    left: 51%;
+    top: 390px;
+}
+
+.open-triangle2 {
+    left: 32%;
+    top: 485px;
+}
+
+.open-triangle3 {
+    left: 10%;
+    top: 630px;
+}
+
+.x-cross1 {
+    left:90%;
+    top: 710px;
+}
+
+.x-cross2 {
+    left: 10%;
+    top:410px;
+}
+
+
+.narrow-screen-pictures{
+    display:none;
+}
+
+
+.phone1-n{
+    left:2%;
+}
+.phone2-n{
+    left: 20%;
+}
+.laptop-n {
+    left: 35%;
+    z-index:2;
+}
+
+.headset-n {
+    left: 69%;
+    top: 588px;
+    z-index:3;
+}
+
+@media screen and (max-width: 900px) {
+  #root {
+    .wide-screen-pictures{
+        display:none;
+    }
+    .narrow-screen-pictures{
+        display:flex;
+        align-items: flex-end;
+    }
+  }
+}

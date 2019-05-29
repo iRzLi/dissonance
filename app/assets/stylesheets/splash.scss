@@ -1,7 +1,12 @@
 .splash{
     display: grid;
-    grid-template-rows: 60px 250px 650px 300px
+    grid-template-rows: 60px 300px 600px auto 250px;
+    position: relative;
 }
+
+/***************************
+    HEADER COMPONENT
+***************************/
 
 .header{
     grid-row-start: 1;
@@ -55,9 +60,61 @@
 .header-icons{
     font-size:20px;
 }
+.small-header {
+    display:none;
+}
+.header-dropdown li {
+    display:none;
+}
+
+.header-icons a{
+    color:#A8A8AA;
+}
+.header-icons a:hover {
+    color: #FDFDFD;
+}
+
+.inner-small-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+}
+
+.inner-small-header span{
+    padding: 5px 15px;
+}
+
+.fa-bars {
+    font-size: 24px;
+}
+
+@media screen and (max-width: 700px) {
+  #root {
+      .header-icons{
+        display:none;
+      }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  #root {
+      .header{
+        display:none;
+      }
+      .small-header{
+          display:block;
+          min-height: 56px;
+          font-size: 16px;
+      }
+  }
+}
+
+/***************************
+    SPLASH TEXT COMPONENT
+***************************/
 
 .splash-text {
-    margin: 75px 0px 0px 0px;
+    margin: 50px 0px 0px 0px;
     grid-row-start: 2;
     grid-row-end: 3;
     display:flex;
@@ -104,3 +161,23 @@
     position: relative;
     top: 1px;
 }
+
+@media screen and (max-width: 900px) {
+  #root {
+    .buttons-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons-div a{
+        width: 250px;
+        padding: 15px 50px;
+        margin: 10px;
+    }
+
+  }
+}
+
+
+
