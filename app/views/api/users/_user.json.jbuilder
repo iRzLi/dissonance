@@ -4,3 +4,9 @@ if(user.profile_picture.attached?)
 else
     json.profile_picture image_url('profile_picture.png')
 end
+json.server_ids do
+    json.array! user.servers.ids
+end
+json.message_ids do
+    json.array! user.messages.ids
+end
