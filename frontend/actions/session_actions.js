@@ -7,7 +7,7 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const login = (formUser) => dispatch => {
     return SessionUtil.login(formUser)
         .then(
-            user => dispatch(receiveCurrentUser(user)),
+            res => dispatch(receiveCurrentUser(res)),
             err => dispatch(receiveSessionErrors(err.responseJSON))
         );
 };
@@ -23,15 +23,15 @@ export const logout = () => dispatch => {
 export const signup = (formUser) => dispatch => {
     return SessionUtil.signup(formUser)
         .then(
-            user => dispatch(receiveCurrentUser(user)),
+            res => dispatch(receiveCurrentUser(res)),
             err => dispatch(receiveSessionErrors(err.responseJSON))
         );
 };
 
-export const receiveCurrentUser = user => {
+export const receiveCurrentUser = res => {
     return {
         type: RECEIVE_CURRENT_USER,
-        user,
+        res,
     };
 };
 

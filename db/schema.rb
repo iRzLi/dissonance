@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_163744) do
+ActiveRecord::Schema.define(version: 2019_05_30_140619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,46 @@ ActiveRecord::Schema.define(version: 2019_05_28_163744) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body", null: false
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_rooms_on_server_id"
+  end
+
+  create_table "server_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.boolean "admin", default: false
+    t.integer "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_server_users_on_server_id"
+    t.index ["user_id", "server_id"], name: "index_server_users_on_user_id_and_server_id", unique: true
+    t.index ["user_id"], name: "index_server_users_on_user_id"
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "join_link", null: false
+    t.boolean "public", default: true
+    t.integer "admin_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_servers_on_admin_id"
+    t.index ["join_link"], name: "index_servers_on_join_link", unique: true
   end
 
   create_table "users", force: :cascade do |t|

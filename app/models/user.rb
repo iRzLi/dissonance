@@ -25,6 +25,32 @@ class User < ApplicationRecord
 
     has_one_attached :profile_picture
 
+    has_many :admined_servers,
+    primary_key: :id,
+    foreign_key: :admin_id,
+    class_name: :Server,
+    dependent: :destroy
+
+    has_many :server_users,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :ServerUser,
+    dependent: :destroy
+
+    has_many :servers,
+    through: :server_users,
+    source: :server
+
+    has_many :messages,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Message,
+    dependent: :destroy
+
+
+
+
+
     def ensure_username_number
         self.username_number = Random.rand(1..999)
         until( already_exists?(self.username, self.username_number) == false ) do
