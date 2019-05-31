@@ -6,12 +6,11 @@
     overflow-x: hidden;
     overflow-y: hidden;
     position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.form-div{
-    display: grid;
-    grid-template-rows: 350px auto;
-}
 
 .form-flex{
     display: flex;
@@ -20,10 +19,9 @@
 }
 
 div.logo{
-    grid-row-start: 1;
-    grid-row-end: 2;
     position:absolute;
     left:5%;
+    top:0px;
     text-align: left;
     color: #FDFDFD;
     margin-top: 70px;
@@ -31,9 +29,6 @@ div.logo{
 
 
 .form-flex form{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    margin-top: 20%;
     background-color: #36393f;
     padding: 20px;
     border-radius: 5px;

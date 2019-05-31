@@ -139,9 +139,9 @@ class SessionForm extends React.Component {
 
         return (
             <div className="session-bg">
+            <div className="logo"><i className="fab fa-discord"></i> Dissonance</div>
             <div className="form-div">
                 <div className="form-flex">
-                <div className="logo"><i className="fab fa-discord"></i> Dissonance</div>
                 <form onSubmit={this.handleSubmit} >
                     <ul>{errors}</ul>
                     {text1}
