@@ -190,7 +190,7 @@
 
 .headset-n {
     left: 69%;
-    top: 588px;
+    top: 388px;
     z-index:3;
 }
 
@@ -203,5 +203,10 @@
         display:flex;
         align-items: flex-end;
     }
+    .splash{
+    display: grid;
+    grid-template-rows: 60px 100px 600px auto 250px;
+    position: relative;
+}
   }
 }

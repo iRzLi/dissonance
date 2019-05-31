@@ -71,10 +71,12 @@
 }
 
 .splash-footer > span div {
-    margin: 0px 100px;
+    margin: 0px 70px;
+    text-align: center;
 }
 
 .signupButton {
+    display:block;
     margin:10px;
     text-decoration: none;
     border-radius: 5px;
@@ -84,10 +86,13 @@
 }
 
 
-
 .signupButton:hover{
     position: relative;
     top: 1px;
+}
+
+.footer-text{
+    width: 500px;
 }
 
 .footer-text h1 {
@@ -96,14 +101,17 @@
     padding-bottom: 5px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 953px) {
   #root {
     .splash-footer > span{
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
     .signupdiv{
         margin-top: 40px;
+        width: 200px;
+        text-align: center;
     }
     .signupButton {
         background-color: #FFFFFF;

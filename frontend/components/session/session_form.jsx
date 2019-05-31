@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleGuest = this.handleGuest.bind(this);
     }
 
     handleSubmit(e) {
@@ -74,11 +75,29 @@ class SessionForm extends React.Component {
         };
     }
 
-    render() {
+    handleGuest(e) {
+        this.setState({ email: "guest@guest.com", password:"somepassword1"},
+        ()=>{
+            setTimeout(()=>{
+                const user = merge({}, this.state);
+                this.props.processForm(user);
+                this.setState({
+                    email: "",
+                    password: "",
+                });
+            }, 500);
+            
+        });
+    }
 
+
+
+    render() {
+        
         let text1 = null;
         let text2=null;
-
+        let text3 = null;
+        
         if (this.props.formType==="Signup"){
             text1 = (
                 <div className="form-header" >
@@ -86,7 +105,8 @@ class SessionForm extends React.Component {
                 </div>
 
             );
-            text2 = <Link className="alternate" to="/login">Already have an account?</Link>
+            text2 = <Link className="alternate alter-text" to="/login">Already have an account?</Link>
+        
         }else{
             text1 = (
                 <div className="form-header" >
@@ -95,7 +115,7 @@ class SessionForm extends React.Component {
                 </div>
 
             );
-            text2 = <div>Need an account? <Link className="alternate" to="/register">Register</Link></div>
+            text2 = <div className="alter-text">Need an account? <Link className="alternate" to="/register">Register</Link> <span className="guest-login" onClick={this.handleGuest}>Guest Login</span></div>
         }
 
 
@@ -111,12 +131,14 @@ class SessionForm extends React.Component {
                     <label className="inputlabel">Username</label>
                     <br />
                     <input className="inputfield" type="text" pattern=".{2,}" title="2 characters minimum" value={this.state.username} onChange={this.handleOnChange("username")} />
-                    
                 </>
             );
         }
 
+
+
         return (
+            <div className="session-bg">
             <div className="form-div">
                 <div className="form-flex">
                 <div className="logo"><i className="fab fa-discord"></i> Dissonance</div>
@@ -138,9 +160,10 @@ class SessionForm extends React.Component {
                     
                     
                     <input type="submit" value={this.props.formType} />
-                        {text2}
+                        {text2}{text3}
                 </form>
                 </div>
+            </div>
             </div>
         )
     }

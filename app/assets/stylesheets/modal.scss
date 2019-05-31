@@ -1,0 +1,62 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-header {
+  padding: 25px;
+  width: 400px;
+  background-color:#1c1d20;
+  padding-bottom: 40px;
+}
+
+.logout-modal h1 {
+  font-size:18px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.logout-modal h2 {
+  margin-top:20px;
+  font-size:14px;
+}
+
+
+.modal-buttons {
+  border-top: 1px solid #151518;
+  background-color:#191a20;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right:10px;
+  text-align: right;
+  display: flex;
+  font-size: 14px;
+}
+
+.modal-cancel {
+  margin: 15px 20px;
+  margin-left: 260px;
+}
+
+.modal-logout-button {
+  background-color: #ea2f38;
+  color: #fdfbfb;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+.modal-buttons span:hover {
+  cursor: pointer;
+}

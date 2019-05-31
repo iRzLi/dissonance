@@ -7,13 +7,14 @@ import SplashFooterComponent from './splash_footer';
 
 const splash = (props) => {
     return (
+        <div className="splash-container">
         <section className="splash">
             <HeaderContainer />
             <SplashTextComponent />
             <SplashPictureComponent />
             {/* <SplashExtraInfoComponent /> */}
             <SplashFooterComponent />
-        </section>
+        </section></div>
     );
 };
 
