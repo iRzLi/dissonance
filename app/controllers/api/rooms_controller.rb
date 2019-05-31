@@ -18,11 +18,15 @@ class Api::RoomsController < ApplicationController
     end
 
     def destroy
-        @room = Room.find_by(id: params[:id])
-        if @room
-            @room.destroy
+        @room = Room.includes(:server).find_by(id: params[:id])
+        if @room && @room.server.admin_id == current_user.id
+            if @room.general ==  false
+                @room.destroy
+            else
+                render json: ["You cannot delete the default room"], status: 422
+            end
         else
-            render json: ["Room destruction failed"], status: 422
+            render json: ["You aren't the admin of this server"], status: 422
         end
     end
 

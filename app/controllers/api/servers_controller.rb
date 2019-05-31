@@ -5,7 +5,7 @@ class Api::ServersController < ApplicationController
         @serveruser = ServerUser.create(user_id: current_user.id, server_id: @server.id, admin: true)
         if @server.save && @serveruser.save
             if(@server.public == true)
-                Room.create!(name:"general", server_id:@server.id)
+                Room.create!(name:"general", server_id:@server.id, general: true)
             end
             redirect_to api_server(server)
         else

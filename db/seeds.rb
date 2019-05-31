@@ -22,7 +22,7 @@ ServerUser.create!(user_id:admin.id, server_id:adminPrivateServer.id, admin:true
 ServerUser.create!(user_id:guest.id, server_id:guestPrivateServer.id, admin:true)
 ServerUser.create!(user_id:guest.id, server_id:publicServer.id, admin:false)
 
-room = Room.create!(name:"general", server_id:publicServer.id)
+room = Room.create!(name:"general", server_id:publicServer.id, general: true)
 
 Message.create!(room_id:room.id, user_id: guest.id, body:"HEY..")
 Message.create!(room_id:room.id, user_id: guest.id, body:"HEY!!")
