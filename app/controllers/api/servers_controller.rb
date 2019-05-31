@@ -49,7 +49,7 @@ class Api::ServersController < ApplicationController
 
 
     def server_params
-        params.require(:server).permit(:name,:public)
+        params.require(:server).permit(:name)
     end
 
 end

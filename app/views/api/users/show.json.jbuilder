@@ -1,15 +1,30 @@
 json.user do
-    json.partial! './api/users/user', user: current_user
+    json.partial! './api/users/user', user: @user
 end
 
 json.servers do
-    current_user.servers.each do |server|
-        json.partial! './api/servers/server', server: server
+    @user.servers.each do |server|
+        json.set! server.id do
+            json.partial! './api/servers/server', server: server
+        end
+    end
+end
+
+
+json.rooms do
+    @user.servers.each do |server|
+        server.rooms.each do |room|
+            json.set! room.id do
+                json.partial! './api/rooms/room', room: room
+            end
+        end
     end
 end
 
 json.messages do
-    current_user.messages.each do |message|
-        json.partial! './api/messages/message', message: message
+    @user.messages.each do |message|
+        json.set! message.id do
+            json.partial! './api/messages/message', message: message
+        end
     end
 end

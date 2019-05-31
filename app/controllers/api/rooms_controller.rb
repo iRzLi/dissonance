@@ -31,6 +31,6 @@ class Api::RoomsController < ApplicationController
     end
 
     def room_params
-        params.require(:server).permit(:name,:server_id)
+        params.require(:room).permit(:name,:server_id)
     end
 end

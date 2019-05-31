@@ -7,6 +7,24 @@ export const signup = (formUser) => {
     });
 };
 
+// Gives user, all of its  servers, rooms, and messages
+/**
+ *
+ * user : {}
+ *
+ * servers: {
+ *   1:{},
+ *   2:{}
+ * }
+ * rooms: {
+ *   1:{},
+ *   2:{}
+ * }
+ * messages: {
+ *   1:{},
+ *   2:{}
+ * }
+ */
 
 export const login = (formUser) => {
     return $.ajax({

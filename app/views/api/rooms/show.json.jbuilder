@@ -3,7 +3,9 @@ json.room do
 end
 
 json.messages do
-    room.messages.each do |message|
-        json.partial! './api/messages/message', message: message
+    @room.messages.each do |message|
+        json.set! message.id do
+            json.partial! './api/messages/message', message: message
+        end
     end
 end

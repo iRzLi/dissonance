@@ -16,10 +16,24 @@ json.servers do
     end
 end
 
+json.rooms do
+    @users.each do |user|
+        user.servers.each do |server|
+            server.rooms.each do |room|
+                json.set! room.id do
+                    json.partial! './api/rooms/room', room: room
+                end
+            end
+        end
+    end
+end
+
 json.messages do 
     @users.each do |user|
         user.messages.each do |message|
-            json.partial! './api/messages/message', message: message
+            json.set! message.id do
+                json.partial! './api/messages/message', message: message
+            end
         end
     end
 end
