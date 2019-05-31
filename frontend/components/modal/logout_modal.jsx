@@ -6,8 +6,10 @@ class LogoutModal extends React.Component {
     }
 
     handleLogout(){
-        this.props.logout();
-        this.props.closeModal();
+        this.props.logout().then(()=>{
+            this.props.closeModal();
+            this.props.history.push("/login");
+        });
     }
     render(){
         return (

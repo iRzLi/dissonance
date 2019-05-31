@@ -15,7 +15,7 @@ class loginLogout extends React.Component {
         if (this.props.loggedIn) {
             login_logout = (
                 <div>
-                    <Link to="/login" onClick={()=>this.props.openModal()} className="login-link">Logout</Link>
+                    <span onClick={()=>this.props.openModal()} className="login-link">Logout</span>
                 </div>
             );
         }
