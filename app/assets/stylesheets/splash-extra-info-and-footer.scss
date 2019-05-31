@@ -62,7 +62,7 @@
 }
 
 
-.splash-footer > span{
+.splash-footer-section {
     padding-top:50px;
     border-top: 1px solid #2c2f33;
     display:flex;
@@ -70,10 +70,7 @@
     margin-top: 50px;
 }
 
-.splash-footer > span div {
-    margin: 0px 70px;
-    text-align: center;
-}
+
 
 .signupButton {
     display:block;
@@ -93,6 +90,7 @@
 
 .footer-text{
     width: 500px;
+    margin-right: 200px;
 }
 
 .footer-text h1 {
@@ -103,7 +101,7 @@
 
 @media screen and (max-width: 953px) {
   #root {
-    .splash-footer > span{
+    .splash-footer-section {
         flex-direction: column;
         text-align: center;
         align-items: center;
@@ -116,6 +114,9 @@
     .signupButton {
         background-color: #FFFFFF;
         color: #7486DA;
+    }
+    .footer-text {
+        margin-right: 0px;
     }
   }
 }
