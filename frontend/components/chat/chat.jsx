@@ -15,6 +15,19 @@ class Chat extends React.Component{
         this.props.requestMessages(this.props.roomId).then(
             () => document.getElementById('bottom-message').scrollIntoView(false)
         );
+        App.cable.subscriptions.create(
+            { channel: "ChatChannel", id: this.props.roomId},
+            {
+                received: messageObj => {
+                    let obj = { message: messageObj};
+                    this.props.receiveMessage(obj);
+                    document.getElementById('bottom-message').scrollIntoView(false);
+                },
+                speak: function(messageObj){
+                    return this.perform("speak", messageObj);
+                }
+            }
+        );
     }
     handleSubmit(e){
         e.preventDefault();
@@ -29,6 +42,7 @@ class Chat extends React.Component{
                  *  this.props.receiveMessage(res.res.message)
                  * }
                 */
+                App.cable.subscriptions.subscriptions[0].speak({ message: res.res.message, id: this.props.roomId });
                 this.setState({body:""});
                 document.getElementById('bottom-message').scrollIntoView(false);
                 document.getElementById("message-submit").setAttribute("disabled","");

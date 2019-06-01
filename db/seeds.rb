@@ -22,8 +22,10 @@ ServerUser.create!(user_id:admin.id, server_id:adminPrivateServer.id, admin:true
 ServerUser.create!(user_id:guest.id, server_id:guestPrivateServer.id, admin:true)
 ServerUser.create!(user_id:guest.id, server_id:publicServer.id, admin:false)
 
-room = Room.create!(name:"general", server_id:publicServer.id, general: true)
+room1 = Room.create!(name:"general", server_id:publicServer.id, general: true)
+room2 = Room.create!(name:"room2", server_id:publicServer.id, general: false)
+room3 = Room.create!(name:"room3", server_id:publicServer.id, general: false)
 
-Message.create!(room_id:room.id, user_id: guest.id, body:"HEY..")
-Message.create!(room_id:room.id, user_id: guest.id, body:"HEY!!")
-Message.create!(room_id:room.id, user_id: guest.id, body:"HEY??")
+Message.create!(room_id:room1.id, user_id: guest.id, body:"HEY..")
+Message.create!(room_id:room1.id, user_id: guest.id, body:"HEY!!")
+Message.create!(room_id:room1.id, user_id: guest.id, body:"HEY??")

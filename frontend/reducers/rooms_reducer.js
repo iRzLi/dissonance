@@ -20,7 +20,9 @@ const roomsReducer = (state = {}, action) => {
         case RECEIVE_MESSAGE:
             const newMessage = action.res.message;
             let newRoomMessage = merge({}, oldState);
-            newRoomMessage[newMessage.room_id].message_ids.push(newMessage.id);
+            if (newRoomMessage[newMessage.room_id].message_ids.includes(newMessage.id)===false){
+                newRoomMessage[newMessage.room_id].message_ids.push(newMessage.id);
+            }
             return newRoomMessage;
 
         default:
