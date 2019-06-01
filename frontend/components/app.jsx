@@ -5,6 +5,7 @@ import SplashComponent from './splash/splash';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
+import IndexContainer from './index/index_container';
 
 const App = () => (
     <>
@@ -12,6 +13,7 @@ const App = () => (
         <AuthRoute path="/login" component={LoginFormContainer} />
         <AuthRoute path="/register" component={SignupFormContainer} />
         <Route exact path="/" component={SplashComponent} />
+        <ProtectedRoute exact path="/channel/:id"  component={IndexContainer}/>
     </>
 );
 

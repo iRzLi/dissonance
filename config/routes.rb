@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :servers, only: [:create, :show, :destroy]
     post "servers/:join_link", to: "servers#join_request"
     resources :rooms, only: [:create, :show, :destroy] do
-      resources :messages, only:[:index,:create,:update,:destroy]
+      resources :messages, only:[:index,:create,:show,:update,:destroy]
     end
   end
 end

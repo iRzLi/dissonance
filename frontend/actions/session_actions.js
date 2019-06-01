@@ -28,6 +28,13 @@ export const signup = (formUser) => dispatch => {
         );
 };
 
+export const requestCurrentUser = id => dispatch => {
+    return SessionUtil.requestUser(id).then(
+        res => dispatch(receiveCurrentUser(res)),
+        err => dispatch(receiveSessionErrors(err.responseJSON))
+        );
+};
+
 export const receiveCurrentUser = res => {
     return {
         type: RECEIVE_CURRENT_USER,

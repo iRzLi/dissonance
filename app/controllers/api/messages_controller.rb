@@ -12,7 +12,16 @@ class Api::MessagesController < ApplicationController
     def create
         @message = Message.create(room_id: params[:room_id], user_id: current_user.id, body: params[:message][:body])
         if(@message.save)
-            redirect_to api_room_messages(@message.room_id)
+            render :show
+        else
+            render json: @message.errors.full_messages, status: 422
+        end
+    end
+
+    def show
+        @message = Message.find_by(id: params[:id])
+        if @message
+            render :show
         else
             render json: @message.errors.full_messages, status: 422
         end

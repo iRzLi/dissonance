@@ -26,7 +26,9 @@ class SessionForm extends React.Component {
         if (this.props.formType==="Signup"){
             //IF FIELDS ARE FILLED OUT
             if(this.state.email && this.state.username && this.state.password){
-                this.props.processForm(user);
+                this.props.processForm(user).then(
+                    () => this.props.history.push("/channel/me")
+                );
                 this.setState({
                     email: "",
                     username: "",
@@ -49,7 +51,9 @@ class SessionForm extends React.Component {
         else {
             //IF FIELDS ARE FILLED OUT
             if (this.state.email && this.state.password) {
-                this.props.processForm(user);
+                this.props.processForm(user).then(
+                    () => this.props.history.push("/channel/me")
+                );
                 this.setState({
                     email: "",
                     password: "",
@@ -80,7 +84,10 @@ class SessionForm extends React.Component {
         ()=>{
             setTimeout(()=>{
                 const user = merge({}, this.state);
-                this.props.processForm(user);
+                // this.props.processForm(user);
+                this.props.processForm(user).then(
+                    () => this.props.history.push("/channel/me")
+                );
                 this.setState({
                     email: "",
                     password: "",

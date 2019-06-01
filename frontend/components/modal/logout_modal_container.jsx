@@ -6,17 +6,17 @@ import LogoutModal from './logout_modal';
 import { withRouter } from 'react-router-dom';
 
 
-const mapStateToProps = ({ errors }) => {
+const msp = ({ errors }) => {
     return {
         errors: errors.session,
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mdp = dispatch => {
     return {
         logout: () => dispatch(logout()),
         closeModal: () => dispatch(closeModal())
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogoutModal));
+export default withRouter(connect(msp, mdp)(LogoutModal));
