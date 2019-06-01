@@ -21,7 +21,7 @@ class Chat extends React.Component{
                 received: messageObj => {
                     let obj = { message: messageObj};
                     this.props.receiveMessage(obj);
-                    document.getElementById('bottom-message').scrollIntoView(false);
+                    // document.getElementById('bottom-message').scrollIntoView(false);
                 },
                 speak: function(messageObj){
                     return this.perform("speak", messageObj);
@@ -44,7 +44,7 @@ class Chat extends React.Component{
                 */
                 App.cable.subscriptions.subscriptions[0].speak({ message: res.res.message, id: this.props.roomId });
                 this.setState({body:""});
-                document.getElementById('bottom-message').scrollIntoView(false);
+                // document.getElementById('bottom-message').scrollIntoView(false);
                 document.getElementById("message-submit").setAttribute("disabled","");
             }
         );
@@ -57,6 +57,9 @@ class Chat extends React.Component{
             }else {
                 document.getElementById("message-submit").removeAttribute("disabled");
             }
+    }
+    componentDidUpdate() {
+        document.getElementById('bottom-message').scrollIntoView(false);
     }
     
     render() {

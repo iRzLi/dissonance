@@ -29,7 +29,9 @@ html, body {
     background-color:#25252A;
     color: #A8A8AA;
     font-family: 'Roboto Slab', serif;
+    -webkit-font-smoothing: antialiased;
 }
+
 @import "splash";
 @import "splash-pictures";
 @import "splash-extra-info-and-footer";
