@@ -1,6 +1,5 @@
 import React from 'react';
 import ServerContainer from '../server/server_container';
-import RoomContainer from '../room/room_container';
 
 class Index extends React.Component {
     constructor(props){
@@ -21,10 +20,15 @@ class Index extends React.Component {
 
     selectServer(id) {
         return e => {
-            this.setState({ 
-                selectedServer: id,
+            this.props.requestServer(id).then(()=>{
+                this.setState({ 
+                    mounted: false,
+                    selectedServer: id,
+                },()=>{
+                    this.setState({mounted:true});
+                });
             });
-            console.log(id);
+
         };
     }
 
@@ -53,16 +57,13 @@ class Index extends React.Component {
     render(){
         let serverList = null;
         if(this.state.mounted===true){
-            console.log(this.state.selectedServer);
             return (
                 <div id="index-page">
                     <ServerContainer 
                     selectServer={this.selectServer} 
                     userId={this.props.userId} 
+                    selectedServer={this.state.selectedServer}
                     />
-                    <RoomContainer 
-                        selectedServerId={this.state.selectedServer}
-                     />
                 </div>
             );
         }

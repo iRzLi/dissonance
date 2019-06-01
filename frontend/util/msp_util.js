@@ -1,7 +1,17 @@
 export const getMyServers = (state, userId) => {
-    return state.entities.users[userId].server_ids.map(serverId=>{
-        return state.entities.servers[serverId];
+    // return state.entities.servers[serverId];
+    const arr = [];
+    state.entities.users[userId].server_ids.forEach(serverId=>{
+        if (state.entities.servers[serverId].public===false){
+            arr.push(state.entities.servers[serverId]);
+        }
     });
+    state.entities.users[userId].server_ids.forEach(serverId => {
+        if (state.entities.servers[serverId].public === true) {
+            arr.push(state.entities.servers[serverId]);
+        }
+    });
+    return arr;
 };
 
 
@@ -14,9 +24,15 @@ export const getMyRooms = (state, serverId) => {
 };
 
 export const getMyMessages = (state, roomId) => {
-    return state.entities.rooms[roomId].message_ids.map(
+    const message_arr = [];
+    state.entities.rooms[roomId].message_ids.forEach(
         messageId => {
-            return state.entities.messages[messageId];
+            message_arr.push(state.entities.messages[messageId]);
         }
     );
+    return message_arr.sort(compareIds);
+};
+
+function compareIds(a, b) {
+    return a.id - b.id;
 }

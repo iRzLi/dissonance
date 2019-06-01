@@ -8,7 +8,7 @@ const serversReducer = (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return merge({}, oldState, action.res.servers);
         case RECEIVE_CURRENT_SERVER:
-            return merge({},oldState, {[action.res.server]: action.res.server});
+            return merge({},oldState, {[action.res.server.id]: action.res.server});
         case REMOVE_CURRENT_SERVER:
             let newState = merge({},oldState);
             delete newState[action.serverId];

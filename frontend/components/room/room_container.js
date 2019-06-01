@@ -8,6 +8,8 @@ const msp = (state, ownProps) => {
     return {
         serverId: ownProps.selectedServerId,
         rooms: getMyRooms(state, ownProps.selectedServerId),
+        selectedRoom: ownProps.selectedRoom,
+        selectRoom: ownProps.selectRoom,
     };
 };
 
