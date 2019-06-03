@@ -108,7 +108,13 @@ class Chat extends React.Component{
                 if (date2.getTime() - date.getTime() > 60000) {
                     withinOneMinute = false;
                 }else{
-                    bodies.push(<li key={allMessages[0].id} >{allMessages[0].body}</li> );
+                    if (allMessages[0].body.length > 100){
+                        let spacedBody = splitString(allMessages[0].body);
+                        bodies.push(<li key={allMessages[0].id} >{spacedBody}</li>);
+                    }else{
+                        // bodies.push(<li word-wrap="break-word" key={allMessages[0].id} >{allMessages[0].body}</li>);
+                        bodies.push(<li key={allMessages[0].id} >{allMessages[0].body}</li> );
+                    }
                     allMessages.shift();
                 }
             }
@@ -130,18 +136,39 @@ class Chat extends React.Component{
 
         return (
             <div className="chat-page">
-                <div className="chat-nav"><span><i class="fas fa-hashtag"></i> <span className="chat-nav-title">{this.props.roomName}</span></span> </div>
+                <div className="chat-nav"><span><i className="fas fa-hashtag"></i> <span className="chat-nav-title">{this.props.roomName}</span></span> </div>
                 <ul className="messages" >
                     {groupedMessages}
                     <li id="bottom-message"></li>
                 </ul>
                 <form className="message-box" onSubmit={this.handleSubmit}>
-                    <input placeholder={`Message #${this.props.roomName}`} onChange={this.handleOnChange} type="text" value={this.state.body} />
+                    {/* <textarea rows="4" id="message-text-area" placeholder={`Message #${this.props.roomName}`} onChange={this.handleOnChange} type="text" value={this.state.body} ></textarea> */}
+                    <input id="message-input" placeholder={`Message #${this.props.roomName}`} onChange={this.handleOnChange} type="text" value={this.state.body} />
                     <input id="message-submit" type="submit" value="Submit" disabled={this.state.disabled} />
                 </form>
             </div>
         );
     }
+}
+
+
+const splitString = str => {
+    let oldstring = str.slice(0);
+    let newString = "";
+    let i = 0;
+    for (i = 0; i < oldstring.length/50; i++) {
+        let start = i*50;
+        let end = (i+1)*50;
+        if (oldstring.slice(start, end).includes(' ')!==true){
+            newString += oldstring.slice(start,end)+'\n';
+        }else {
+            newString += oldstring.slice(start, end);
+        }
+    }
+    let endingPart = (i+1)*100;
+    newString += oldstring.slice(endingPart);
+    return newString;
+
 }
 
 export default Chat;
