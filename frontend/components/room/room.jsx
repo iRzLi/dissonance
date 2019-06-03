@@ -21,6 +21,7 @@ class room extends React.Component {
             )
         }
         else {
+            // PRIVATE MESSAGING
             return (
                 <ul className="room-list">{roomList}</ul>
             )

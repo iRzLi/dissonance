@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_USER_MSG } from '../actions/session_actions';
 import { merge } from 'lodash';
 import {RECEIVE_CURRENT_SERVER} from '../actions/server_actions';
 import { RECEIVE_CURRENT_ROOM, REMOVE_CURRENT_ROOM } from '../actions/room_actions';
@@ -17,7 +17,7 @@ const roomsReducer = (state = {}, action) => {
             let newState = merge({}, oldState);
             delete newState[action.roomId];
             return newState;
-        case RECEIVE_MESSAGE:
+        case RECEIVE_USER_MSG:
             const newMessage = action.res.message;
             let newRoomMessage = merge({}, oldState);
             if (newRoomMessage[newMessage.room_id].message_ids.includes(newMessage.id)===false){

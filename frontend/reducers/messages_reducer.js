@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_USER_MSG } from '../actions/session_actions';
 import { merge } from 'lodash';
 import { RECEIVE_CURRENT_SERVER } from '../actions/server_actions';
 import { RECEIVE_CURRENT_ROOM } from '../actions/room_actions';
@@ -17,6 +17,8 @@ const messagesReducer = (state = {}, action) => {
             return merge({}, oldState, action.res.messages);
         case RECEIVE_MESSAGE:
             return merge({},oldState, {[action.res.message.id]:action.res.message});
+        case RECEIVE_USER_MSG:
+            return merge({}, oldState, { [action.res.message.id]: action.res.message });
         default:
             return oldState;
     }

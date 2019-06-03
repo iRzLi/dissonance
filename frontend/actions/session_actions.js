@@ -3,6 +3,7 @@ import * as SessionUtil from '../util/session_api_util';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+export const RECEIVE_USER_MSG = 'RECEIVE_USER_MSG';
 
 export const login = (formUser) => dispatch => {
     return SessionUtil.login(formUser)
@@ -48,9 +49,17 @@ export const logoutCurrentUser = () => {
     };
 };
 
+
 export const receiveSessionErrors = err => {
     return {
         type: RECEIVE_SESSION_ERRORS,
         errors: err,
+    };
+};
+
+export const receiveUserMsg = (res) => {
+    return {
+        type: RECEIVE_USER_MSG,
+        res,
     };
 };

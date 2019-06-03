@@ -1,5 +1,6 @@
 #index-page {
     height: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 100px 150px auto 200px;
 }
@@ -66,21 +67,35 @@
 .messages {
     padding: 20px;
     overflow-y:scroll;
-    height: 85%;
+    height: calc(100% - 130px);
+}
+
+.chat-nav {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin-left:25px;
+    font-size: 24px;
+}
+
+.chat-nav-title {
+    color: #FFFEFD;
+    margin-left: 5px;
+    font-weight: bold;
 }
 
 .message-name {
-    color:#FFFFFF;
+    color:#FFFEFD;
     padding-right:5px;
+    padding-bottom: 5px;
+    margin-left: 60px;
 }
+
 
 .message-box{
     display: flex;
     justify-content: center;
-    position: fixed;
-    bottom: 15px;
-    width:80%;
-    left:250px;
+    width:100%;
 }
 
 .message-box input{
@@ -90,7 +105,7 @@
     border-radius:5px;
     color: #FDFDFD;
     padding: 10px 15px;
-    width:90%;
+    width:99%;
 }
 
 
@@ -101,3 +116,44 @@
 #bottom-message {
     visibility: hidden;
 }
+
+
+.message-body {
+    margin-left: 55px;
+    min-height: 50px;
+}
+
+.message-body li {
+    margin:5px;
+
+    color: #AAAEB6;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.message-group {
+    position: relative;
+    margin: 5px;
+}
+
+.profile-picture {
+    height: 40px;
+    width: 40px;
+    // border: 1px solid #000000;
+    overflow:hidden;
+    border-radius: 30px;
+    position: absolute;
+    top:10px;
+    left:2.5px;
+}
+
+.datetime {
+    font-size:10px;
+    color: #585b60;
+}
+
+.messages > li {
+    border-bottom: 1px solid #585b60;
+    padding: 5px;
+}
+
