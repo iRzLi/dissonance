@@ -130,7 +130,7 @@ class Chat extends React.Component{
 
         return (
             <div className="chat-page">
-                <div className="chat-nav"># <span className="chat-nav-title">{this.props.roomName}</span> </div>
+                <div className="chat-nav"><span><i class="fas fa-hashtag"></i> <span className="chat-nav-title">{this.props.roomName}</span></span> </div>
                 <ul className="messages" >
                     {groupedMessages}
                     <li id="bottom-message"></li>
