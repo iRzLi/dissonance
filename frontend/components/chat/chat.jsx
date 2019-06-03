@@ -121,8 +121,8 @@ class Chat extends React.Component{
             groupedMessages.push(
                 <li key={custkey }>
                     <div className="message-group">
-                        {/* <img className="profile-picture" src={this.props.users[curr_user_id].profile_picture}/> */}
-                        <img className="profile-picture" src={window.profile_picture} />
+                        <img className="profile-picture" src={this.props.users[curr_user_id].profile_picture}/>
+                        {/* <img className="profile-picture" src={window.profile_picture} /> */}
 
                         <div className="message-name">
                             {currName} <span className="datetime"> {printDate} {time}</span>
