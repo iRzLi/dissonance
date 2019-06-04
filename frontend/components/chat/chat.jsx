@@ -13,9 +13,7 @@ class Chat extends React.Component{
     }
 
     componentDidMount(){
-        this.props.requestMessages(this.props.roomId).then(
-            () => document.getElementById('bottom-message').scrollIntoView(false)
-        );
+        this.props.requestMessages(this.props.roomId);
         App.cable.subscriptions.create(
             { channel: "ChatChannel", id: this.props.roomId},
             {
@@ -80,17 +78,6 @@ class Chat extends React.Component{
     }
     
     render() {
-        // let messages = this.props.messages.map((message,index,msgArr)=>{
-        //     return (
-        //         <li key={message.id} >
-        //         <span className="message-name">
-        //             {this.props.users[message.user_id].username}#
-        //             {this.props.users[message.user_id].username_number}:
-        //         </span>
-        //         {message.body}</li>);
-        // });
-
-
         let groupedMessages = [];
         let allMessages = this.props.messages.slice();
         while(allMessages.length!==0){

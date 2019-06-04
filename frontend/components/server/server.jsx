@@ -4,18 +4,18 @@ import RoomContainer from '../room/room_container';
 class server extends React.Component{
     constructor(props){
         super(props);
-        if (this.props.allServers[this.props.selectedServer]){
-            this.state = {
-                mounted: true,
-                selectedRoom: this.props.allServers[this.props.selectedServer].room_ids[0],
-            };
-        }else {
-            this.state = {
-                mounted: true,
-                selectedRoom: null,
-            };
-        }
+        this.state = {
+            selectedRoom: null,
+        };
         this.selectRoom = this.selectRoom.bind(this);
+    }
+
+    componentDidUpdate(prevProps){
+        // if(this.props.myServer.public===true){
+        //     this.setState({ selectedRoom: this.props.myServer.room_ids[0]});
+        // }else {
+        //     this.setState({ selectedRoom: null });
+        // }
     }
 
     selectRoom(id) {
@@ -26,31 +26,60 @@ class server extends React.Component{
                 );
             });
             
+            // this.setState({selectRoom:id}, ()=>{
+            //     this.props.history.push(`/channel/${this.props.selectedServer}/${id}`);
+            // });
         };
     }
 
-    componentDidMount(){
-    }
+    // componentDidMount(){
+    //     if(this.state.selectedRoom!==null){
+    //         this.setState({ mounted: false }, () => {
+    //             this.props.requestRoom(this.state.selectedRoom).then(
+    //                 () => this.setState({mounted: true })
+    //             );
+    //         });
+    //     }
+    // }
 
     render(){
         let ServerList = this.props.servers.map((server, i) => {
+            //  FIRST SERVER || HOME SERVER
             if(i === 0){
-                return <div className="home-server" key={i}><li  key={server.id} onClick={this.props.selectServer(server.id)} >{server.name}</li></div>
+                //  IF SELECTED OR NOT
+                if (this.props.selectedServer===server.id){
+                    return <div className="home-server" key={i}><li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li></div>
+                }else{
+                    return <div className="home-server" key={i}><li className="server-li-ele"  key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li></div>
+                }
             }
             else{
-                return <li key={server.id} onClick={this.props.selectServer(server.id)} >{server.name}</li>
+                if (this.props.selectedServer === server.id){
+                    return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li>
+                }else{
+                    return <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li>
+                }
             }
         });
-        if (this.state.mounted === true && this.state.selectedRoom) {
+        if (this.props.myServer && this.props.myServer.public === true) {
             return (
                 <>
-                <ul className="server-list">{ServerList}</ul>
+                <ul className="server-list">
+                    {ServerList}
+                        <li onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
+                </ul>
                     <RoomContainer selectedRoom={this.state.selectedRoom} selectRoom={this.selectRoom} selectedServerId={this.props.selectedServer} />
                 </>
             );
         }else {
+            //  MAKE THIS PRIVATE MESSAING PORTION
+            //  if (this.props.myServer && this.props.myServer.public === false)
+            //  PrivateRoomContainer?
             return  (
-                <ul className="server-list">{ServerList}</ul>
+                <ul className="server-list">
+                    {ServerList}
+                    <li onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
+                </ul>
             );
         }
     }

@@ -13,7 +13,7 @@ class Api::RoomsController < ApplicationController
         if(@room)
             render :show
         else
-            render json: @room.errors.full_messages, status: 404
+            render json: ["Room currently does not exist"], status: 404
         end
     end
 

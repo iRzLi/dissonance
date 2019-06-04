@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import server from './server';
 import { getMyServers } from '../../util/msp_util';
 import { requestRoom } from '../../actions/room_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
     return {
-        allServers: state.entities.servers,
-        servers: getMyServers(state, ownProps.userId),
+        myServer: state.entities.servers[ownProps.selectedServer],
+        servers: getMyServers(state),
         selectServer: ownProps.selectServer,
         selectedServer: ownProps.selectedServer,
     };
@@ -15,6 +16,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
     return {
         requestRoom: id => dispatch(requestRoom(id)),
+        openModal: () => dispatch(openModal("logout"))
     };
 };
 export default connect(msp,mdp)(server);

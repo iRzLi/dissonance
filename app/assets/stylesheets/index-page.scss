@@ -21,19 +21,36 @@
     border-bottom: 1px solid #36393f;
     margin-bottom:10px;
 }
+#selected-server {
+    border-radius: 15px;
+    background-color:#7387D7;
+}
+.server-li-ele:hover{
+    border-radius: 15px;
+    background-color:#7387D7;
+}
 
 .server-list li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:50px;
-    padding:30px 15px;
+    justify-content: center;
+    width:70px;
+    height: 70px;
     color: #FFFFFF;
     cursor: pointer;
     border: 1px solid #000000;
-    border-radius: 20px;
+    border-radius: 80px;
     background-color: #36393f;
     margin-bottom: 5px;
+    overflow:hidden;
+    position: relative;
+    margin: 5px;
+    transition: all .25s;
+}
+
+.fa-plus {
+    font-size:36px;
 }
 
 .room-list {

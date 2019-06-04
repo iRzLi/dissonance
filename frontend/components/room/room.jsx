@@ -21,9 +21,12 @@ class room extends React.Component {
             )
         }
         else {
-            // PRIVATE MESSAGING
+            // DEFAULT ROOM
             return (
-                <ul className="room-list">{roomList}</ul>
+                <>
+                    <ul className="room-list">{roomList}</ul>
+                    < ChatContainer selectedRoomId={this.props.rooms[0].id} />
+                </>
             )
         }
 

@@ -4,10 +4,10 @@ import ServerContainer from '../server/server_container';
 class Index extends React.Component {
     constructor(props){
         super(props);
-        if (this.props.user.server_ids.includes(parseInt(this.props.match.params.id))) {
+        if (this.props.user.server_ids.includes(parseInt(this.props.match.params.serverId))) {
             this.state = {
                 mounted: false,
-                selectedServer: this.props.match.id,
+                selectedServer: parseInt(this.props.match.params.serverId),
             };
         }else {
             this.state = {
@@ -20,33 +20,45 @@ class Index extends React.Component {
 
     selectServer(id) {
         return e => {
-            this.props.requestServer(id).then(()=>{
-                this.setState({ 
-                    mounted: false,
-                    selectedServer: id,
-                },()=>{
-                    this.setState({mounted:true});
-                });
+            // this.props.requestServer(id).then(()=>{
+            //     this.setState({ 
+            //         mounted: false,
+            //         selectedServer: id,
+            //     },()=>{
+            //         this.setState({mounted:true});
+            //     });
+            // });
+            this.setState({ selectedServer: id }, ()=>{
+                if (parseInt(this.props.match.params.serverId) !== id) {
+                    this.props.history.push(`/channel/${id}`);
+                }
             });
-
+            // this.setState({ mounted:false, selectedServer: id}, ()=>{
+            //     if (parseInt(this.props.match.params.serverId)!== id){
+            //         this.props.history.push(`/channel/${id}`);
+            //     }
+            // });
         };
+    }
+
+    componentDidUpdate(prevProps){
+        if (prevProps.match.params.serverId !== this.props.match.params.serverId){
+            this.props.requestServer(parseInt(this.props.match.params.serverId));
+        }
     }
 
     componentDidMount(){
         this.props.requestCurrentUser(this.props.userId).then(
             () => {
-                if (this.props.user.server_ids.includes(parseInt(this.props.match.params.id))){
+                if (this.props.user.server_ids.includes(parseInt(this.props.match.params.serverId))){
                     this.setState({
-                        mounted: true,
-                        selectedServer: this.props.match.params.id,
+                        selectedServer: parseInt(this.props.match.params.serverId),
                     },()=>{
-                            this.props.requestServer(this.props.match.params.id);
+                            this.props.requestServer(parseInt(this.props.match.params.serverId));
                     });
                 }
                 else {
-                    this.setState({mounted: true},()=>{
                         this.props.requestServer(this.props.user.server_ids[0]);
-                    });
                 }
                 
             }
@@ -55,26 +67,25 @@ class Index extends React.Component {
 
 
     render(){
-        let serverList = null;
-        if(this.state.mounted===true){
+        // if(this.state.mounted===true){
+            // debugger
             return (
                 <div id="index-page">
-                    <ServerContainer 
+                    <ServerContainer
                     selectServer={this.selectServer} 
                     userId={this.props.userId} 
                     selectedServer={this.state.selectedServer}
                     />
                 </div>
             );
-        }
-        else{
-            return (
-                <div id="index-page">
-                    Loading...
-                </div>
-            );
+        // }
+        // else{
+        //     return (
+        //         <div id="index-page">
+        //         </div>
+        //     );
 
-        }
+        // }
 
     }
 }
