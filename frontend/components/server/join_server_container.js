@@ -4,6 +4,12 @@ import JoinServerComponent from './join_server';
 import { connect } from 'react-redux';
 import { joinServer } from '../../actions/server_actions';
 
+const msp = state => {
+    return {
+        errors: state.errors.server,
+    };
+};
+
 const mdp = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
@@ -12,4 +18,4 @@ const mdp = dispatch => {
     };
 };
 
-export default withRouter(connect(null, mdp)(JoinServerComponent));
+export default withRouter(connect(msp, mdp)(JoinServerComponent));

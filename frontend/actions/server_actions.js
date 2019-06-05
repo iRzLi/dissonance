@@ -3,6 +3,7 @@ import { openModal, closeModal } from './modal_actions';
 
 export const RECEIVE_CURRENT_SERVER = 'RECEIVE_CURRENT_SERVER';
 export const REMOVE_CURRENT_SERVER = 'REMOVE_CURRENT_SERVER';
+export const RECEIVE_JOIN_SERVER_ERROR = 'RECEIVE_JOIN_SERVER_ERROR';
 // export const SERVER_ERRORS = 'SERVER_ERRORS';
 
 
@@ -61,10 +62,16 @@ export const joinServer = joinLink => dispatch => {
         (res) => dispatch(receiveCurrentServer(res)),
         (errors) => { 
             // debugger
-            // dispatch(receiveJoinError(errors.responseJSON));
+            dispatch(receiveJoinError(errors.responseJSON));
             // dispatch(openModal("joinErrors"));
-            dispatch(closeModal());
+            // dispatch(closeModal());
         }
     );
 };
 
+export const receiveJoinError = errors => {
+    return {
+        type: RECEIVE_JOIN_SERVER_ERROR,
+        errors,
+    };
+};

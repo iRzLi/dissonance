@@ -30,7 +30,7 @@ class JoinServer extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let link = this.state.link.split(".join/")[1];
+        let link = this.state.link.split("dissonance.join/")[1];
         this.props.joinServer(link).then(
             (res) => {
                 this.props.closeModal();
@@ -39,6 +39,10 @@ class JoinServer extends React.Component {
     }
 
     render() {
+        let errors = null;
+        if(this.props.errors[0]){
+            errors = <span id="serverErrors"> ({this.props.errors[0]}) </span>;
+        }
         return (
             <div id="joinServerDiv">
                 <section>
@@ -48,7 +52,7 @@ class JoinServer extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <ul>
                             <li> <input onChange={this.onChangeHandler} id="joinInput" type="text" value={this.state.link} /></li>
-                            <li><label>Enter an instant invite</label></li>
+                            <li><label>Enter an instant invite{errors}</label></li>
                         </ul>
                         <ul className="join-bottom">
                             <li onClick={this.handleBack} ><i className="fas fa-arrow-left"></i> Back</li>
