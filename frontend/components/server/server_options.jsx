@@ -8,13 +8,15 @@ class ServerOptions extends React.Component{
     }
 
     createServer() {
-        this.props.closeModal();
-        this.props.openCreateServerModal();
+        // this.props.closeModal();
+        // this.props.openCreateServerModal();
+        this.props.goCreate();
     }
 
     joinServer(){
-        this.props.closeModal();
-        this.props.openJoinServerModal();
+        // this.props.closeModal();
+        // this.props.openJoinServerModal();
+        this.props.goJoin();
     }
 
     render(){

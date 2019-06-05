@@ -4,6 +4,13 @@ import CreateServerComponent from './create_server';
 import { connect } from 'react-redux';
 import {createServer} from '../../actions/server_actions';
 
+const msp = (state, ownProps) => {
+    return {
+        selectedContainer: ownProps.selectedContainer,
+        goBack: ownProps.selectContainer(0),
+    };
+};
+
 const mdp = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
@@ -12,4 +19,4 @@ const mdp = dispatch => {
     };
 };
 
-export default withRouter(connect(null, mdp)(CreateServerComponent));
+export default withRouter(connect(msp, mdp)(CreateServerComponent));

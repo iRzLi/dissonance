@@ -10,8 +10,9 @@ class CreateServer extends React.Component {
     }
 
     handleBack(){
-        this.props.closeModal();
-        this.props.openOptionsServerModal();
+        // this.props.closeModal();
+        // this.props.openOptionsServerModal();
+        this.props.goBack();
     }
 
     onChangeHandler(e){
@@ -34,14 +35,19 @@ class CreateServer extends React.Component {
             (res)=>{
                 // debugger
                 this.props.closeModal();
-                // this.props.history.push(`/channel/${res.res.server.id}`);
+                this.props.history.push(`/channel/${res.res.server.id}`);
             }
         );
     }
 
     render(){
+        let CreateZIndexClass = "createZIndex1";
+        if (this.props.selectedContainer === 1){
+            CreateZIndexClass = "createZIndex2";
+        }
+
         return (
-        <div id="createServerDiv">
+        <div id="createServerDiv" className={CreateZIndexClass}>
             <section>
                 <div className="server-creat-title">CREATE YOUR SERVER</div>
                 <div>By creating a server, you will have access to free text chat to use amongst your friends.</div>

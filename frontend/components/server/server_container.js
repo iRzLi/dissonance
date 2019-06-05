@@ -17,7 +17,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
     return {
         requestRoom: id => dispatch(requestRoom(id)),
-        openModal: () => dispatch(openModal("serverOptions"))
+        openModal: () => dispatch(openModal("serverModal"))
     };
 };
 export default withRouter(connect(msp,mdp)(server));

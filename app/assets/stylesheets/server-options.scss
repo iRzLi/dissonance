@@ -6,7 +6,8 @@
 .server-options {
     background-color: #FFFFFF;
     border-radius: 5px;
-
+    position: absolute;
+    z-index: 50;
 }
 
 .server-options-section{
@@ -328,4 +329,47 @@
 #serverErrors {
     margin-left:5px;
     color: #f04747;
+}
+
+#serverModalMain {
+    width:564px;
+    overflow: hidden; 
+    position: relative;
+}
+
+#mainServerContainer {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width:1128px;
+    // left:-564px;
+    transition: all .5s;
+}
+.containerShifted1{
+    left:0px;
+}
+.containerShifted2{
+    left:-564px;
+}
+
+.createZIndex1{
+    position: absolute;
+    z-index: 0;
+    left: 564px;
+}
+.createZIndex2{
+    position: absolute;
+    z-index: 12;
+    left: 564px;
+}
+
+.JoinZIndex1{
+    position: absolute;
+    z-index: 0;
+    left:1px;
+}
+.JoinZIndex2{
+    position: absolute;
+    z-index: 1;
+    left:1px;
 }

@@ -10,8 +10,9 @@ class JoinServer extends React.Component {
     }
 
     handleBack() {
-        this.props.closeModal();
-        this.props.openOptionsServerModal();
+        // this.props.closeModal();
+        // this.props.openOptionsServerModal();
+        this.props.goBack();
     }
 
     onChangeHandler(e) {
@@ -43,8 +44,14 @@ class JoinServer extends React.Component {
         if(this.props.errors[0]){
             errors = <span id="serverErrors"> ({this.props.errors[0]}) </span>;
         }
+
+        let JoinZIndex = "JoinZIndex1";
+        if (this.props.selectedContainer === 2) {
+            JoinZIndex = "JoinZIndex2";
+        }
+
         return (
-            <div id="joinServerDiv">
+            <div id="joinServerDiv" className={JoinZIndex}>
                 <section>
                     <div className="server-join-title">JOIN A SERVER</div>
                     <div>Enter an instant invite below to join an existing server. The invite will look something like this:</div>

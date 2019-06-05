@@ -20,30 +20,20 @@ class Index extends React.Component {
 
     selectServer(id) {
         return e => {
-            // this.props.requestServer(id).then(()=>{
-            //     this.setState({ 
-            //         mounted: false,
-            //         selectedServer: id,
-            //     },()=>{
-            //         this.setState({mounted:true});
-            //     });
-            // });
             this.setState({ selectedServer: id }, ()=>{
                 if (parseInt(this.props.match.params.serverId) !== id) {
                     this.props.history.push(`/channel/${id}`);
                 }
             });
-            // this.setState({ mounted:false, selectedServer: id}, ()=>{
-            //     if (parseInt(this.props.match.params.serverId)!== id){
-            //         this.props.history.push(`/channel/${id}`);
-            //     }
-            // });
         };
     }
 
     componentDidUpdate(prevProps){
         if (prevProps.match.params.serverId !== this.props.match.params.serverId){
             this.props.requestServer(parseInt(this.props.match.params.serverId));
+            if (this.state.selectedServer !== this.props.match.params.serverId ){
+                this.setState({ selectedServer: parseInt(this.props.match.params.serverId)})
+            }
         }
     }
 

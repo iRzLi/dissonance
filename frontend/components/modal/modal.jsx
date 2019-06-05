@@ -5,6 +5,7 @@ import LogoutModalContainer from './logout_modal_container.jsx';
 import ServerOptionsContainer from '../../components/server/server_options_container';
 import JoinServerContainer from '../../components/server/join_server_container';
 import CreateServerContainer from '../../components/server/create_server_container';
+import ServerModalContainer from '../../components/server/server_modal_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -23,6 +24,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'joinServer':
             component = <JoinServerContainer />;
+            break;
+        case 'serverModal':
+            component = <ServerModalContainer />;
             break;
         default:
             return null;
