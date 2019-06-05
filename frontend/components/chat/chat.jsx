@@ -12,9 +12,10 @@ class Chat extends React.Component{
         this.handleOnChange = this.handleOnChange.bind(this);
     }
 
+
     componentDidMount(){
         this.props.requestMessages(this.props.roomId);
-        App.cable.subscriptions.create(
+        App.room = App.cable.subscriptions.create(
             { channel: "ChatChannel", id: this.props.roomId},
             {
                 received: obj => {
@@ -44,7 +45,7 @@ class Chat extends React.Component{
                  * pass users as well and change reducer of user if user doesnt exist
                 */
 
-                App.cable.subscriptions.subscriptions[0].speak({ message: res.res.message, id: this.props.roomId, user: this.props.users[this.props.sessionId] });
+                App.room.speak({ message: res.res.message, id: this.props.roomId, user: this.props.users[this.props.sessionId] });
                 this.setState({body:"", disabled:true});
                 // document.getElementById('bottom-message').scrollIntoView(false);
                 // document.getElementById("message-submit").setAttribute("disabled","");
@@ -69,12 +70,22 @@ class Chat extends React.Component{
                 });
             }
     }
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         document.getElementById('bottom-message').scrollIntoView(false);
-        // let rooms = document.getElementsByClassName('messages');
-        // for (let i = 0; i < rooms.length; i++) {
-        //     rooms[i].scrollIntoView(false);
-        // }
+        if (this.props.roomId!==prevProps.roomId){
+            App.room.unsubscribe();
+            App.room = App.cable.subscriptions.create(
+                { channel: "ChatChannel", id: this.props.roomId },
+                {
+                    received: obj => {
+                        this.props.receiveUserMsg(obj);
+                    },
+                    speak: function (messageObj) {
+                        return this.perform("speak", messageObj);
+                    }
+                }
+            );
+        }
     }
     
     render() {
