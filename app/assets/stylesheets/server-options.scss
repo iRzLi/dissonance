@@ -373,3 +373,56 @@
     z-index: 1;
     left:1px;
 }
+#serverLinkDiv {
+    height: 220px;
+    width: 460px;
+    background-color: #202225;
+
+}
+
+#linkHeader {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#linkTitle {
+    color: #f6f6f7;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    padding-top:10px;
+}
+#serverLinkClose{
+    height: 26px;
+    padding: 4px;
+    opacity: .5;
+    cursor: pointer;
+    color: #dcddde;
+    padding-top:10px;
+}
+
+#serverLinkClose:hover {
+    color: #f6f6f7;
+}
+
+.linkInfo {
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 10px 20px;
+    
+}
+
+#serverLink {
+    color: #f6f6f7;
+    background-color: rgba(0,0,0,.1);
+    border-color: rgba(0,0,0,.3);
+    box-sizing: border-box;
+    width: 81%;
+    padding: 10px;
+    height: 40px;
+    font-size: 16px;
+    margin-left:15px;
+}

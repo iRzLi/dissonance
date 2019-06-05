@@ -36,6 +36,7 @@ class CreateServer extends React.Component {
                 // debugger
                 this.props.closeModal();
                 this.props.history.push(`/channel/${res.res.server.id}`);
+                this.props.openServerLinkModal();
             }
         );
     }

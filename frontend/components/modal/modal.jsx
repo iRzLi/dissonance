@@ -6,6 +6,7 @@ import ServerOptionsContainer from '../../components/server/server_options_conta
 import JoinServerContainer from '../../components/server/join_server_container';
 import CreateServerContainer from '../../components/server/create_server_container';
 import ServerModalContainer from '../../components/server/server_modal_container';
+import ServerLinkContainer from '../../components/server/server_link_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -16,17 +17,20 @@ function Modal({ modal, closeModal }) {
         case 'logout':
             component = <LogoutModalContainer />;
             break;
-        case 'serverOptions':
-            component = <ServerOptionsContainer />;
-            break;
-        case 'createServer':
-            component = <CreateServerContainer />;
-            break;
-        case 'joinServer':
-            component = <JoinServerContainer />;
-            break;
+        // case 'serverOptions':
+        //     component = <ServerOptionsContainer />;
+        //     break;
+        // case 'createServer':
+        //     component = <CreateServerContainer />;
+        //     break;
+        // case 'joinServer':
+        //     component = <JoinServerContainer />;
+        //     break;
         case 'serverModal':
             component = <ServerModalContainer />;
+            break;
+        case 'serverLink':
+            component = <ServerLinkContainer />;
             break;
         default:
             return null;

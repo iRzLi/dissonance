@@ -16,6 +16,7 @@ const mdp = dispatch => {
         closeModal: () => dispatch(closeModal()),
         createServer: (formServer) => dispatch(createServer(formServer)),
         openOptionsServerModal: () => dispatch(openModal("serverOptions")),
+        openServerLinkModal: () => dispatch(openModal("serverLink"))
     };
 };
 
