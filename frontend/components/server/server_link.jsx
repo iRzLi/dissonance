@@ -3,17 +3,7 @@ import React from 'react';
 class ServerLink extends React.Component {
     constructor(props) {
         super(props);
-        // this.state={
-        //     link: this.props.servers[parseInt(this.props.location.pathname.split("/")[2])].join_link,
-        // };
-
     }
-
-    // componentDidUpdate(oldProps){
-        
-    // }
-
-
 
     render() {
         // this.props.location.pathname.split("/")

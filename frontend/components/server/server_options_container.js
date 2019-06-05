@@ -16,8 +16,6 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
-        openCreateServerModal: () => dispatch(openModal("createServer")),
-        openJoinServerModal: () => dispatch(openModal("joinServer")),
     };
 };
 

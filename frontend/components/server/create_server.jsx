@@ -10,8 +10,6 @@ class CreateServer extends React.Component {
     }
 
     handleBack(){
-        // this.props.closeModal();
-        // this.props.openOptionsServerModal();
         this.props.goBack();
     }
 
@@ -33,7 +31,6 @@ class CreateServer extends React.Component {
         e.preventDefault();
         this.props.createServer(this.state).then(
             (res)=>{
-                // debugger
                 this.props.closeModal();
                 this.props.history.push(`/channel/${res.res.server.id}`);
                 this.props.openServerLinkModal();
