@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { closeModal, openModal } from '../../actions/modal_actions';
 import ChatComponent from './chat';
 import { getMyMessages } from '../../util/msp_util';
 import {createMessage, requestMessages, receiveMessage} from '../../actions/message_actions';
@@ -11,6 +12,7 @@ const msp = (state, ownProps) => {
         messages: getMyMessages(state, ownProps.selectedRoomId),
         users: state.entities.users,
         sessionId: state.session.id,
+        myServerAdmin: state.entities.servers[state.entities.rooms[ownProps.selectedRoomId].server_id].admin_id,
     };
 };
 
@@ -21,6 +23,7 @@ const mdp = dispatch => {
         requestMessages: (roomId) => dispatch(requestMessages(roomId)),
         receiveMessage: (messageObj) => dispatch(receiveMessage(messageObj)),
         receiveUserMsg: (obj) => dispatch(receiveUserMsg(obj)),
+        openModal: () => dispatch(openModal('serverLink')),
     };
 };
 

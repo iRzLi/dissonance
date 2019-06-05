@@ -28,7 +28,7 @@ html, body {
     height: 100%;
     background-color:#25252A;
     color: #A8A8AA;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Slab', sans-serif;
     // -webkit-font-smoothing: antialiased;
 }
 
@@ -42,5 +42,5 @@ html, body {
 @import "index-page";
 
 @import "server-options";
-
+@import "server-list";
 @import "room-col";

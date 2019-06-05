@@ -49,16 +49,16 @@ class CreateServer extends React.Component {
             <section>
                 <div className="server-creat-title">CREATE YOUR SERVER</div>
                 <div>By creating a server, you will have access to free text chat to use amongst your friends.</div>
-                <div id="server-preview" >{firstChars(this.state.name)}</div>
+                <div><div id="server-preview" >{firstChars(this.state.name)}</div></div>
             <form onSubmit={this.handleSubmit}>
                 <ul>
                     <li> <label>Server Name</label></li>
                     <li> <input onChange={this.onChangeHandler} id="createInput" type="text" placeholder="Enter a server name" value={this.state.name} /></li>
                     <li><label> Server Region </label></li>
-                            <li><div className="server-region" ><i className="fas fa-flag-usa"></i> US East</div></li>
+                            <li><div className="server-region" ><img src={window.flag} /> US East</div></li>
                 </ul>
                 <ul className="create-bottom">
-                    <li onClick={this.handleBack} ><i className="fas fa-arrow-left"></i> Back</li>
+                    <li className="handleBackLi" onClick={this.handleBack} ><i className="fas fa-arrow-left"></i> Back</li>
                     <li><input id="createServerSubmitButton" disabled={this.state.disabled} type="submit" value="Create" /></li>
                 </ul>
             </form>

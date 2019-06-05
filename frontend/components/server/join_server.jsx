@@ -62,7 +62,7 @@ class JoinServer extends React.Component {
                             <li><label>Enter an instant invite{errors}</label></li>
                         </ul>
                         <ul className="join-bottom">
-                            <li onClick={this.handleBack} ><i className="fas fa-arrow-left"></i> Back</li>
+                            <li className="handleBackLi"  onClick={this.handleBack} ><i className="fas fa-arrow-left"></i> Back</li>
                             <li><input id="joinServerSubmitButton" disabled={this.state.disabled} type="submit" value="Join" /></li>
                         </ul>
                     </form>

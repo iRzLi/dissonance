@@ -51,16 +51,31 @@ class server extends React.Component{
             if(i === 0){
                 //  IF SELECTED OR NOT
                 if (this.props.selectedServer===server.id){
-                    return <div className="home-server" key={i}><li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li></div>
+                    return (
+                        <div className="home-server" key={i}>
+                            <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} >
+                                <div className="selected-content" ><i className="fab fa-discord"></i></div>
+                                <div className="selected-shifting-div"></div>
+                                <div className="home-border"></div>
+                            </li>
+                        </div>)
                 }else{
-                    return <div className="home-server" key={i}><li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li></div>
+                    return (
+                        <div className="home-server" key={i}>
+                            <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} >
+                                <div className="server-content"><i className="fab fa-discord"></i></div>
+                                <div className="shifting-div"></div>
+                                <div className="home-border"></div>
+                            </li>
+                        </div>
+                    )
                 }
             }
             else{
                 if (this.props.selectedServer === server.id){
-                    return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li>
+                    return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><div className="selected-content">{firstChars(server.name)}</div><div className="selected-shifting-div"></div></li>
                 }else{
-                    return <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li>
+                    return <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><div className="server-content">{firstChars(server.name)}</div><div className="shifting-div"></div></li>
                 }
             }
         });
@@ -70,7 +85,10 @@ class server extends React.Component{
                 <div className="server-list-div">
                 <ul className="server-list">
                     {ServerList}
-                        <li className="server-list-options" onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
+                            <li className="server-list-options" onClick={this.props.openModal} >
+                                <div className="server-content"><i className="fas fa-plus"></i></div>
+                                <div className="shifting-div"></div>
+                            </li>
                 </ul>
                 </div>
                     <RoomContainer selectedRoom={this.state.selectedRoom} selectRoom={this.selectRoom} selectedServerId={this.props.selectedServer} />
@@ -84,7 +102,10 @@ class server extends React.Component{
                 <div className="server-list-div">
                 <ul className="server-list">
                     {ServerList}
-                    <li className="server-list-options" onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
+                    <li className="server-list-options" onClick={this.props.openModal} >
+                            <div className="server-content"><i className="fas fa-plus"></i></div>
+                            <div className="shifting-div"></div>
+                    </li>
                 </ul>
                 </div>
             );

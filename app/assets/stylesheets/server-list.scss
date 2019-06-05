@@ -1,0 +1,136 @@
+
+.server-list-div {
+    position: fixed;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 100%;
+    width: 70px;
+    overflow-y: scroll;
+    background-color: #1f2124;
+}
+
+.server-list{
+    background-color: #1f2124;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100px;
+}
+
+.home-server {
+    padding-top:7px;
+    padding-bottom: 10px;
+    // border-bottom: 2px solid #36393f;
+    // margin-bottom:10px;
+    position: relative;
+}
+#selected-server {
+    border-radius: 15px;
+    background-color:#7387D7;
+}
+.server-li-ele:hover{
+    border-radius: 15px;
+    background-color:#7387D7;
+}
+
+.server-list li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:48px;
+    height: 48px;
+    cursor: pointer;
+    border-radius: 80px;
+    background-color: #2f3136;
+    color: #b9bbbe;
+    margin-bottom: 5px;
+    position: relative;
+    margin: 5px;
+    transition: all .25s;
+}
+
+.fa-plus {
+    font-size:24px;
+}
+
+
+.server-li-ele div{
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.server-list-options{
+    transition: all .25s;
+}
+.server-list-options div {
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #43b581;
+    
+}
+
+.server-list-options div:hover {
+    color:#FFFFFF;
+}
+
+.server-list-options:hover {
+    background-color: #3db684;
+    border-radius: 15px;
+}
+
+.shifting-div{
+    position: absolute;
+    left: -59px;
+    width:100%;
+    height: 50%;
+    z-index: 1000;
+    background-color: #b9bbbe;
+}
+
+.server-content{
+    position: relative;
+    width:48px;
+    height: 48px;
+    overflow: hidden;
+}
+
+.selected-content{
+    position: relative;
+    width:48px;
+    height: 48px;
+    overflow: hidden;
+}
+
+
+.server-content:hover + .shifting-div {
+    border-right: 4px solid #b9bbbe;
+    border-radius: 5px;
+}
+
+.selected-shifting-div{
+    position: absolute;
+    width:100%;
+    height: 40px;
+    border:4px solid #b9bbbe;
+    border-radius: 10px;
+    background-color:#FFFFFF;
+    left:-63px;
+}
+
+.home-border {
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    background-color: #2f3136;
+    top:57px;
+}
+
+.home-server i {
+    font-size:24px;
+    color: #FFFFFF;
+}

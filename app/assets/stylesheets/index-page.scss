@@ -2,72 +2,15 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 100px 150px auto 200px;
+    grid-template-columns: 70px 150px auto 200px;
     overflow: hidden;
 }
-
-.server-list-div {
-    position: fixed;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    height: 100%;
-    width: 100px;
-    overflow-y: scroll;
-    background-color: #1e2024;
-}
-
-.server-list{
-    background-color: #1e2024;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 100px;
-}
-
-.home-server {
-    padding-top:15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #36393f;
-    margin-bottom:10px;
-}
-#selected-server {
-    border-radius: 15px;
-    background-color:#7387D7;
-}
-.server-li-ele:hover{
-    border-radius: 15px;
-    background-color:#7387D7;
-}
-
-.server-list li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width:70px;
-    height: 70px;
-    color: #FFFFFF;
-    cursor: pointer;
-    border: 1px solid #000000;
-    border-radius: 80px;
-    background-color: #36393f;
-    margin-bottom: 5px;
-    overflow:hidden;
-    position: relative;
-    margin: 5px;
-    transition: all .25s;
-}
-
-.fa-plus {
-    font-size:36px;
-}
-
 
 .chat-page {
     grid-column-start: 3;
     grid-column-end: 5;
     border-right:1px solid #000000;
-    background-color:#303338;
+    background-color:#36393f;
     position: relative;
     width:100%;
     overflow: hidden;
@@ -150,7 +93,7 @@
 }
 
 .messages > li {
-    border-bottom: 1px solid #585b60;
+    border-bottom: 1px solid #3c3f45;
     padding: 5px;
 }
 
@@ -194,4 +137,64 @@
     resize: none;
     overflow: hidden;
 
+}
+
+#adminShowChat {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    border-bottom: 1px solid #3c3f45;
+}
+
+#adminShowChat h2 {
+    line-height: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #7289da;
+    margin: 15px 0 30px;
+}
+
+.adminShowMessage {
+    margin-left: 22px;
+    margin-top: 9px;
+    margin-bottom: 20px;
+    width: 347px;
+    color: #87909c;
+    font-size: 15px;
+    line-height: 150%;
+}
+
+.message-intro {
+    color: #87909c;
+    line-height: 150%;
+    font-weight: 800;
+}
+
+#shareButton {
+    color: #00b0f4;
+    cursor: pointer;
+}
+
+#shareButton:hover {
+    text-decoration: underline;
+}
+
+#image-chat-left-icon{
+    position: absolute;
+    height: 75px;
+    top: 125px;
+    left: 0px;
+}
+
+#image-chat-right-icon{
+    position: absolute;
+    height: 75px;
+    top: 125px;
+    right: 0px;
 }
