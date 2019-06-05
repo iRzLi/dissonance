@@ -1,4 +1,5 @@
 import * as ServerUtil from '../util/server_api_util';
+import { openModal, closeModal } from './modal_actions';
 
 export const RECEIVE_CURRENT_SERVER = 'RECEIVE_CURRENT_SERVER';
 export const REMOVE_CURRENT_SERVER = 'REMOVE_CURRENT_SERVER';
@@ -55,9 +56,15 @@ export const requestServer = id => dispatch => {
     );
 };
 
-export const joinServer = id => dispatch => {
-    return ServerUtil.joinServer(id).then(
-        (res) => dispatch(receiveCurrentServer(res))
+export const joinServer = joinLink => dispatch => {
+    return ServerUtil.joinServer(joinLink).then(
+        (res) => dispatch(receiveCurrentServer(res)),
+        (errors) => { 
+            // debugger
+            // dispatch(receiveJoinError(errors.responseJSON));
+            // dispatch(openModal("joinErrors"));
+            dispatch(closeModal());
+        }
     );
 };
 

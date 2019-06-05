@@ -16,6 +16,9 @@ class server extends React.Component{
         // }else {
         //     this.setState({ selectedRoom: null });
         // }
+        if (prevProps.match.params.serverId !== this.props.match.params.serverId) {
+            this.setState({ selectedRoom: null});
+        }
     }
 
     selectRoom(id) {
@@ -48,26 +51,28 @@ class server extends React.Component{
             if(i === 0){
                 //  IF SELECTED OR NOT
                 if (this.props.selectedServer===server.id){
-                    return <div className="home-server" key={i}><li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li></div>
+                    return <div className="home-server" key={i}><li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li></div>
                 }else{
-                    return <div className="home-server" key={i}><li className="server-li-ele"  key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li></div>
+                    return <div className="home-server" key={i}><li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li></div>
                 }
             }
             else{
                 if (this.props.selectedServer === server.id){
-                    return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li>
+                    return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li>
                 }else{
-                    return <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{server.name}</span></li>
+                    return <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><span>{firstChars(server.name)}</span></li>
                 }
             }
         });
         if (this.props.myServer && this.props.myServer.public === true) {
             return (
                 <>
+                <div className="server-list-div">
                 <ul className="server-list">
                     {ServerList}
-                        <li onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
+                        <li className="server-list-options" onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
                 </ul>
+                </div>
                     <RoomContainer selectedRoom={this.state.selectedRoom} selectRoom={this.selectRoom} selectedServerId={this.props.selectedServer} />
                 </>
             );
@@ -76,13 +81,24 @@ class server extends React.Component{
             //  if (this.props.myServer && this.props.myServer.public === false)
             //  PrivateRoomContainer?
             return  (
+                <div className="server-list-div">
                 <ul className="server-list">
                     {ServerList}
-                    <li onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
+                    <li className="server-list-options" onClick={this.props.openModal} ><span><i className="fas fa-plus"></i></span></li>
                 </ul>
+                </div>
             );
         }
     }
 }
 
 export default server;
+
+const firstChars = (string)=>{
+    const array = string.split(" ");
+    let charStr = "";
+    for (let index = 0; index < array.length; index++) {
+        charStr += array[index][0];
+    }
+    return charStr;
+}

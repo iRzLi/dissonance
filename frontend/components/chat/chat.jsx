@@ -80,7 +80,7 @@ class Chat extends React.Component{
     render() {
         let groupedMessages = [];
         let allMessages = this.props.messages.slice();
-        while(allMessages.length!==0){
+        while (allMessages.length !== 0 && this.props.users[allMessages[0].user_id]){
             let bodies = [];
             let curr_user_id = allMessages[0].user_id;
             let currName = this.props.users[curr_user_id].username;

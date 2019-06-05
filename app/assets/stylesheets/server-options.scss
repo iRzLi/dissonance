@@ -1,0 +1,326 @@
+.server-list-options:hover{
+    background-color: #3db684;
+    border-radius: 15px;
+}
+
+.server-options {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+
+}
+
+.server-options-section{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.options-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 40px 20px;
+}
+
+.server-choice {
+    width:210px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e5e5e5;
+    margin: 0px 5px 16px;
+}
+
+
+#createServerImg {
+    background: image_url("create_server.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 112px;
+    background-size: 112px 78px;
+    margin: 26px 0px;
+}
+
+#joinServerImg{
+    background: image_url("join_server.png");
+    background-repeat: no-repeat;
+    height: 78px;
+    width: 178.5px;
+    background-size: 178.5px 78px;
+    margin: 26px 0px;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+    margin-top: 6px;
+    color: #7289da;
+}
+
+.server-choice-body {
+    margin-top: 16px;
+    font-size: 14px;
+    padding: 0 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.server-choice-title-c {
+    margin: 20px 0px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #7289da;
+}
+
+.server-choice-title-j {
+    margin: 20px 0px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #3ca374;
+}
+
+.server-choice button {
+    width: 200px;
+    padding: 14px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    transition: background-color .2s ease;
+    outline: none;
+}
+
+#createServerButton{
+    color: #fff;
+    background-color: #7289da;
+}
+
+#createServerButton:hover{
+    background-color:#6879c1;
+}
+
+#joinServerButton{
+    color: #fff;
+    background-color: #3ca374;
+}
+
+#joinServerButton:hover {
+    background-color: #31946A;
+}
+
+#createServerDiv {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width:564px;
+    height: 438px;
+    position: relative;
+}
+
+.server-creat-title {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7289da;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#createServerDiv section {
+    padding: 28px 40px 10px;
+}
+
+#createServerDiv section > div {
+    font-size: 18px;
+    text-align: center;
+}
+
+#createServerDiv section form {
+    margin-top:30px;
+}
+
+#createServerDiv section form label {
+    color: #87909c;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+#createInput {
+    margin-top: 12px;
+    padding: 10px 4px;
+    border-radius: 0;
+    border-width: 0 0 2px;
+    border-bottom: 1px solid #F6F6F7 ;
+    font-size: 16px;
+    font-weight: 400;
+    width: 40%;
+    outline: none;
+    color: #3b3c40;
+}
+#createInput:focus {
+    border-bottom: 2px solid #7387D7;
+}
+#createInput::placeholder{
+    color: #B9BBBE;
+}
+
+.server-region {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 12px;
+    padding: 10px 4px;
+    color: #3b3c40;
+}
+
+.create-bottom {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:54px;
+    left:5px;
+    align-items: center;
+}
+
+#createServerSubmitButton{
+    color: #fff;
+    background-color: #7289da;
+    width: auto;
+    padding: 14px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    transition: background-color .2s ease;
+    outline: none;
+}
+
+#createServerSubmitButton:hover{
+    background-color:#6879c1;
+}
+
+#server-preview{
+    position: absolute;
+    width:70px;
+    height: 70px;
+    background-color: #7289da;
+    color: #fff;
+    border-radius: 70px;
+    left:400px;
+    top:200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+#joinServerDiv {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width:564px;
+    height: 438px;
+    position: relative;
+}
+
+.server-join-title{
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    color: #3ca374;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#joinServerSubmitButton{
+    color: #fff;
+    background-color: #3ca374;
+    width: auto;
+    padding: 14px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    transition: background-color .2s ease;
+    outline: none;
+}
+
+#joinServerSubmitButton:hover{
+    background-color:#31946A;
+}
+
+#joinInput {
+    margin-top: 12px;
+    padding: 10px 4px;
+    border-radius: 0;
+    border-width: 0 0 2px;
+    border-bottom: 1px solid #F6F6F7 ;
+    font-size: 16px;
+    font-weight: 400;
+    width: 80%;
+    outline: none;
+    color: #3b3c40;
+}
+#joinInput:focus {
+    border-bottom: 2px solid #7387D7;
+}
+#joinInput::placeholder{
+    color: #B9BBBE;
+}
+
+.join-bottom {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:54px;
+    left:5px;
+    align-items: center;
+    margin-top:111px;
+}
+
+#joinServerDiv section {
+    padding: 28px 40px 10px;
+}
+
+#joinServerDiv section  div {
+    font-size: 18px;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+#joinServerDiv section form {
+    margin-top:30px;
+}
+
+#joinServerDiv section form label {
+    color: #87909c;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    margin-top:5px;
+}
+
+#link-example{
+    color: #7289da;
+    font-size: 14px;
+}

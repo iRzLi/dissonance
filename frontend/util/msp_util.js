@@ -28,7 +28,9 @@ export const getMyMessages = (state, roomId) => {
     const message_arr = [];
     state.entities.rooms[roomId].message_ids.forEach(
         messageId => {
-            message_arr.push(state.entities.messages[messageId]);
+            if (state.entities.messages[messageId]){
+                message_arr.push(state.entities.messages[messageId]);
+            }
         }
     );
     return message_arr.sort(compareIds);

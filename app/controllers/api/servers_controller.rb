@@ -2,12 +2,14 @@ class Api::ServersController < ApplicationController
     def create
         @server = Server.create(server_params)
         @server.admin_id = current_user.id
-        @serveruser = ServerUser.create(user_id: current_user.id, server_id: @server.id, admin: true)
-        if @server.save && @serveruser.save
-            if(@server.public == true)
-                Room.create!(name:"general", server_id:@server.id, general: true)
+        if @server.save
+            @serveruser = ServerUser.create(user_id: current_user.id, server_id: @server.id, admin: true)
+            if @serveruser.save
+                if @server.public == true
+                    Room.create!(name:"general", server_id:@server.id, general: true)
+                end
             end
-            redirect_to api_server(server)
+            redirect_to api_server_url(@server)
         else
             render json: @server.errors.full_messages, status: 422
         end
@@ -38,7 +40,7 @@ class Api::ServersController < ApplicationController
         if server
             server_user = ServerUser.create(user_id: current_user.id, server_id: server.id)
             if(server_user.save)
-                redirect_to api_server(server)
+                redirect_to api_server_url(server)
             else
                 render json: server_user.errors.full_messages, status: 422
             end

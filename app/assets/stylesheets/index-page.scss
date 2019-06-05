@@ -3,11 +3,19 @@
     width: 100%;
     display: grid;
     grid-template-columns: 100px 150px auto 200px;
+    overflow: hidden;
 }
 
-.server-list {
+.server-list-div {
+    position: fixed;
     grid-column-start: 1;
     grid-column-end: 2;
+    height: 100%;
+    width: 100px;
+    overflow-y: scroll;
+}
+
+.server-list{
     background-color: #1e2024;
     display: flex;
     flex-direction: column;
