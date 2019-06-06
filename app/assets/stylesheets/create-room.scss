@@ -1,0 +1,119 @@
+
+
+/**************************************
+    CreateRoomContainerModal
+**************************************/
+
+#createRoomDiv {
+    width: 440px;
+    background-color:#36393f;
+    border-radius: 5px;
+}
+
+#createRoomHeader{
+    height: 36px;
+    width: 400px;
+    padding: 20px;
+}
+
+#createRoomHeader h2{
+    color: #f6f6f7;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    font-size: 16px;
+    font-weight: 600;
+}
+#createRoomHeader span {
+    color: #b9bbbe;
+    line-height: 16px;
+    font-size: 12px;
+}
+#createRoomBody{
+    height: 170px;
+    width: 408px;
+    padding: 0 12px 0 20px;
+}
+
+
+
+
+#createRoomBody label {
+    color: #b9bbbe;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#channelTypeText{
+    padding: 10px;
+    width: 380px;
+    border-color: #7289DA;
+    background-color: #7289DA;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#channelTypeText .fas {
+    margin: 0px 5px;
+}
+
+#channelNameInput{
+    color: #f6f6f7;
+    background-color: rgba(0,0,0,.1);
+    border-color: rgba(0,0,0,.3);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 380px;
+}
+
+#createRoomBottom{
+    height: 78px;
+    width: 440px;
+    background-color: #2f3035;
+    border-radius: 0px 0px 5px 5px;
+    display: flex;
+    align-items: center;
+}
+
+#createRoomBottom span{
+    margin-left:200px;
+    margin-right: 10px;
+    color: #FFFFFF;
+    padding: 2px 16px;
+    font-size: 14px;
+}
+
+#createRoomBottom span:hover {
+    text-decoration: underline;
+}
+
+#createRoomBottom > input {
+    border-color: #7289DA;
+    background-color: #7289DA;
+    color: #FFFFFF;
+    height: 38px;
+    min-width: 96px;
+    min-height: 38px;
+    font-size: 14px;
+    padding: 2px 16px;
+    border-radius: 5px;
+}
+
+#createRoomBottom > input:hover {
+    border-color: #6879c1;
+    background-color:#6879c1;
+}
+
+#createRoomError {
+    color: #f04747;
+    font-size: 12px;
+    line-height: 16px;
+    padding-top: 4px;
+}

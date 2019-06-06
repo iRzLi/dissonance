@@ -2,7 +2,7 @@ class Api::RoomsController < ApplicationController
     def create
         @room = Room.create(room_params)
         if(@room.save)
-            redirect_to api_server(@room.server_id)
+            redirect_to api_server_url(@room.server_id)
         else
             render json: @room.errors.full_messages, status: 422
         end

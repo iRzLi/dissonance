@@ -21,3 +21,5 @@ pickle-email-*.html
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+master.key

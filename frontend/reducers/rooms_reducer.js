@@ -12,7 +12,7 @@ const roomsReducer = (state = {}, action) => {
         case RECEIVE_CURRENT_SERVER:
             return merge({}, oldState, action.res.rooms);
         case RECEIVE_CURRENT_ROOM:
-            return merge({},oldState, {[action.res.room.id]:action.res.room});
+            return merge({},oldState, action.res.rooms);
         case REMOVE_CURRENT_ROOM:
             let newState = merge({}, oldState);
             delete newState[action.roomId];

@@ -138,7 +138,7 @@ class Chat extends React.Component{
             adminShow = (
                 <div id="adminShowChat" >
                     <h2>WELCOME TO YOUR SERVER, {this.props.users[this.props.sessionId].username}!</h2>
-                    <div className="adminShowMessage"><span className="message-intro">Inivte your friends</span> to this server by clicking on a <span onClick={this.props.openModal} id="shareButton">share button</span> when you're ready.</div>
+                    <div className="adminShowMessage"><span className="message-intro">Inivte your friends</span> to this server by clicking on a <span onClick={this.props.openModal} id="shareButton">share button  <i id="chatUserPlus" className="fas fa-user-plus"></i></span> when you're ready.</div>
                     <img id="image-chat-left-icon" src={window.chat_left}/>
                     <img id="image-chat-right-icon" src={window.chat_right} />
                 </div>
