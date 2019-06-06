@@ -87,6 +87,12 @@ class Chat extends React.Component{
             );
         }
     }
+
+    componentWillUnmount(){
+        if(App.room){
+            App.room.unsubscribe();
+        }
+    }
     
     render() {
         let groupedMessages = [];
