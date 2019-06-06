@@ -35,6 +35,7 @@ class JoinServer extends React.Component {
         this.props.joinServer(link).then(
             (res) => {
                 this.props.closeModal();
+                this.props.history.push(`/channel/${res.res.server.id}`);
             }
         );
     }
