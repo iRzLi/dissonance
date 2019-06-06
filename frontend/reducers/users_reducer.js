@@ -1,7 +1,7 @@
 import { RECEIVE_CURRENT_USER, RECEIVE_USER } from '../actions/session_actions';
 import { merge } from 'lodash';
 import { RECEIVE_CURRENT_SERVER } from '../actions/server_actions';
-import { RECEIVE_USER_MSG } from '../actions/message_actions';
+import { RECEIVE_USER_MSG } from '../actions/session_actions';
 
 const usersReducer = (state = {}, action) => {
     const oldState = Object.freeze(state);
