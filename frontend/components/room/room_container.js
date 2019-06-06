@@ -10,6 +10,8 @@ const msp = (state, ownProps) => {
         rooms: getMyRooms(state, ownProps.selectedServerId),
         selectedRoom: ownProps.selectedRoom,
         selectRoom: ownProps.selectRoom,
+        myServer: state.entities.servers[ownProps.selectedServerId],
+        mySelf: state.entities.users[state.session.id],
     };
 };
 
