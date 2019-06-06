@@ -58,7 +58,6 @@ class Index extends React.Component {
 
     render(){
         // if(this.state.mounted===true){
-            // debugger
             return (
                 <div id="index-page">
                     <ServerContainer

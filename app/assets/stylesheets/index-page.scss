@@ -200,5 +200,57 @@
 }
 
 #chatUserPlus {
-    margin: 0px 5px;
+    position: absolute;
+    top: 60px;
+    left:30%;
+    font-size: 36px;
+    color: #7289da;
+    transition: all .5s ease;
+}
+@media screen and (max-width: 1450px) {
+  #root {
+    #chatUserPlus {
+    left:27%;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #root {
+    #chatUserPlus {
+    left:25%;
+    }
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  #root {
+    #chatUserPlus {
+    left:22%;
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  #root {
+    #chatUserPlus {
+    left:19%;
+    }
+  }
+}
+
+@media screen and (max-width: 1080) {
+  #root {
+    #chatUserPlus {
+    left:10%;
+    }
+  }
+}
+
+@media screen and (max-width: 1025) {
+  #root {
+    #chatUserPlus {
+        left:0%;
+    }
+  }
 }

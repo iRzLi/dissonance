@@ -5,6 +5,18 @@ class room extends React.Component {
     constructor(props) {
         super(props);
         this.inviteClick = this.inviteClick.bind(this);
+        this.state={
+            clicked: false,
+        };
+        this.showDrop = this.showDrop.bind(this);
+    }
+
+    showDrop(){
+        if(this.state.clicked===false){
+            this.setState({clicked:true});
+        }else{
+            this.setState({ clicked: false });
+        }
     }
 
     inviteClick(e){
@@ -17,8 +29,45 @@ class room extends React.Component {
             document.getElementById("textChannels").scrollIntoView();
         }
     }
+
     
     render(){
+        let carotOrClose = (<i onClick={this.showDrop} id="carotOrX" className="fas fa-angle-down"></i>)
+
+        let dropDown =  (
+            <div id="closedRoomDropDown"> 
+                <div id="inviteLinkRow" className="dropDownRow" onClick={this.inviteClick}>
+                    <i className="fas fa-user-plus"></i>
+                    <div>Invite People</div>
+                </div>
+                <div className="dropDownRow" onClick={this.props.createRoom} >
+                    <i className="fas fa-plus"></i>
+                    <div>Create Room</div>
+                </div>
+            </div>
+        );
+
+        if (this.state.clicked === true){
+            dropDown = (
+                <div id="openRoomDropDown">
+                    <div id="inviteLinkRow" className="dropDownRow" onClick={this.inviteClick}>
+                        <i className="fas fa-user-plus"></i>
+                        <div>Invite People</div>
+                    </div>
+                    <div className="dropDownRow" onClick={this.props.createRoom} >
+                        <i className="fas fa-plus"></i>
+                        <div>Create Room</div>
+                    </div>
+                </div>
+            );
+            carotOrClose = (<i onClick={this.showDrop} id="carotOrX" className="fas fa-times"></i>)
+        }
+
+        if (this.props.sessionId !== this.props.myServerAdmin) {
+            carotOrClose = null;
+            dropDown = null;
+        }
+
         let addUser = null;
         if(this.props.sessionId===this.props.myServerAdmin){
             addUser = <i onClick={this.inviteClick} className="fas fa-user-plus"></i>;
@@ -47,7 +96,8 @@ class room extends React.Component {
         return (
             <>
                 <ul className="room-list">
-                    <div id="roomNav"><span>{this.props.myServer.name}</span><i className="fas fa-angle-down"></i></div>
+                    <div id="roomNav"><span>{this.props.myServer.name}</span>{carotOrClose}</div>
+                    {dropDown}
                     <div id="room-list-middle">
                         {textChannels}
                         {/* <div id="textChannels"><span><i className="fas fa-angle-down"></i>Text Channels</span><i className="fas fa-plus newRoomPlus"></i></div> */}

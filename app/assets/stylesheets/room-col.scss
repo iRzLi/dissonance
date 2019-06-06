@@ -28,7 +28,7 @@
     margin-left: 16px;
     font-size: 16px;
     line-height: 20px;
-    font-weight: 500;
+    font-weight: 400;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -54,7 +54,7 @@
     text-transform: uppercase;
     font-size: 12px;
     line-height: 16px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 #textChannels  .fa-angle-down {
@@ -112,13 +112,13 @@
     height: 30px;
     width: 30px;
     border-radius: 30px;
-    left:5px;
+    left:10px;
 }
 
 
 
 #roomBottom ul {
-    margin-left:45px;
+    margin-left:30px;
 }
 
 #profile-name{
@@ -238,4 +238,50 @@
 
 #roomLogout {
     display: none;
+}
+
+#closedRoomDropDown{
+    display: none;
+}
+
+#openRoomDropDown{
+    position: absolute;
+    background-color: #272a2f;
+    top: 45px;
+    left: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropDownRow{
+    display: flex;
+    flex-direction: row;
+    width: 140px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.dropDownRow > .fas {
+    font-size: 14px;
+    margin: 0px 10px;
+}
+
+#carotOrX {
+    cursor: pointer;
+}
+
+.dropDownRow:hover {
+    background-color: #24272c;
+}
+.dropDownRow:hover > div {
+    color: #ffffff;
+}
+
+#inviteLinkRow {
+    color: #7289da;
+}
+
+#inviteLinkRow:hover > div {
+    color: #6475ba;
 }

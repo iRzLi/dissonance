@@ -61,7 +61,6 @@ export const joinServer = joinLink => dispatch => {
     return ServerUtil.joinServer(joinLink).then(
         (res) => dispatch(receiveCurrentServer(res)),
         (errors) => { 
-            // debugger
             dispatch(receiveJoinError(errors.responseJSON));
             // dispatch(openModal("joinErrors"));
             // dispatch(closeModal());
