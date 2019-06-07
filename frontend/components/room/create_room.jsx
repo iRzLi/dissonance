@@ -36,24 +36,24 @@ class CreateRoom extends React.Component {
         return (
             <div id="createRoomDiv">
                 <div id="createRoomHeader">
-                    <h2>create text channel</h2>
-                    <span>in Text Channels</span>
+                    <h2>create text room</h2>
+                    <span>in Text Rooms</span>
                 </div>
                 <form onSubmit={this.handleSubmit}>
                 <section id="createRoomBody">
-                    <label>Channel Type</label>
+                    <label>Room Type</label>
                     <div id="channelTypeText" >
                             <i className="fas fa-check-square"></i>
                             <i className="fas fa-hashtag"></i> 
-                            <span>Text Channel</span>
+                            <span>Text Room</span>
                     </div>
-                    <label>Channel Name</label>
+                    <label>Room Name</label>
                     <input id="channelNameInput" onChange={this.onChangeHandler} value={this.state.name}/>
                         {errors}
                 </section>
                 <div id="createRoomBottom">
                     <span onClick={this.props.closeModal} >Cancel</span>
-                    <input type="submit" value="Create Channel" />
+                    <input type="submit" value="Create Room" />
                 </div>
 
                 </form>

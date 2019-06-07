@@ -90,9 +90,9 @@ class room extends React.Component {
 
         let textChannels = null;
         if (this.props.sessionId === this.props.myServerAdmin) {
-            textChannels = <div id="textChannels"><span><i className="fas fa-angle-down"></i>Text Channels</span><i onClick={this.props.createRoom} className="fas fa-plus newRoomPlus"></i><div id="newRoomBlurb">Create a new Room</div></div>
+            textChannels = <div id="textChannels"><span><i className="fas fa-angle-down"></i>Text Rooms</span><i onClick={this.props.createRoom} className="fas fa-plus newRoomPlus"></i><div id="newRoomBlurb">Create a new Room</div></div>
         } else {
-            textChannels = <div id="textChannels"><span><i className="fas fa-angle-down"></i>Text Channels</span></div>
+            textChannels = <div id="textChannels"><span><i className="fas fa-angle-down"></i>Text Rooms</span></div>
         }
 
         return (
@@ -102,7 +102,6 @@ class room extends React.Component {
                     {dropDown}
                     <div id="room-list-middle">
                         {textChannels}
-                        {/* <div id="textChannels"><span><i className="fas fa-angle-down"></i>Text Channels</span><i className="fas fa-plus newRoomPlus"></i></div> */}
                         <ul id="room-list-show-ul">
                             {roomList}
                         </ul>
