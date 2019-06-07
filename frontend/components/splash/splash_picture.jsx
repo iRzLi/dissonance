@@ -14,11 +14,11 @@ const splashPicture = props => {
                 <img className="picture circle3" src={window.picture_circle} />
                 <img className="picture circle4" src={window.picture_circle} />
                 <img className="picture circle5" src={window.picture_circle} />
-                <img className="picture coin1" src={window.picture_coin} />
-                <img className="picture coin2" src={window.picture_coin} />
+                <img className="picture pic-movement coin1" src={window.picture_coin} />
+                <img className="picture pic-movement coin2" src={window.picture_coin} />
                 <img className="picture controller" src={window.picture_controller} />
                 <img className="picture disk" src={window.picture_disk} />
-                <img className="picture floppy-disk" src={window.picture_floppy_disk} />
+                <img className="picture pic-movement floppy-disk" src={window.picture_floppy_disk} />
                 <img className="picture open-circle1" src={window.picture_open_circle} />
                 <img className="picture open-circle2" src={window.picture_open_circle} />
                 <img className="picture open-circle3" src={window.picture_open_circle} />
