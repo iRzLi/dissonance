@@ -7,7 +7,7 @@ const splashFooter = props => {
             <div className="splash-footer-section">
                 <ul className="footer-text">
                     <h1>Ready to try Dissonance? It's free!</h1>
-                    <span>JOIN OVER 250 MILLION PLAYERS TODAY</span>
+                    <span>JOIN OVER 2 PLAYERS TODAY</span>
                 </ul>
                 <ul className="signupdiv">
                     <Link to="/register" className="signupButton">Sign Up Now</Link>
