@@ -39,4 +39,11 @@ Dissonance was built using React/Redux, and Javascript for the frontend; Ruby on
 
 ### Text Chat
 
-*
+* Users can post messages to a room
+
+![chat](./readme-extras/chat-room.png "Chat room img")
+
+## Future features
+
+* Private/direct messages
+* Link up with aws so users can change their profile pictures
