@@ -72,6 +72,7 @@ class server extends React.Component{
                 }
             }
             else{
+                //  all servers that are not the private server
                 if (this.props.selectedServer === server.id){
                     return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><div className="selected-content">{firstChars(server.name)}</div><div className="selected-shifting-div"></div></li>
                 }else{
@@ -79,6 +80,9 @@ class server extends React.Component{
                 }
             }
         });
+
+
+        //  renders here
         if (this.props.myServer && this.props.myServer.public === true) {
             return (
                 <>
@@ -98,6 +102,14 @@ class server extends React.Component{
             //  MAKE THIS PRIVATE MESSAING PORTION
             //  if (this.props.myServer && this.props.myServer.public === false)
             //  PrivateRoomContainer?
+            /****
+             * 
+             * Make another container here that has props
+             * that include all users within the selected server
+             * users can create a dm room in that container/component
+             * also have the id for the private server so you can redirect them
+             * 
+             */
             return  (
                 <div className="server-list-div">
                 <ul className="server-list">
