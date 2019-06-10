@@ -30,9 +30,13 @@ class Index extends React.Component {
 
     componentDidUpdate(prevProps){
         if (prevProps.match.params.serverId !== this.props.match.params.serverId){
-            this.props.requestServer(parseInt(this.props.match.params.serverId));
-            if (this.state.selectedServer !== this.props.match.params.serverId ){
-                this.setState({ selectedServer: parseInt(this.props.match.params.serverId)})
+            if (this.props.user.server_ids.includes(parseInt(this.props.match.params.serverId))){
+                this.props.requestServer(parseInt(this.props.match.params.serverId));
+                if (this.state.selectedServer !== this.props.match.params.serverId ){
+                    this.setState({ selectedServer: parseInt(this.props.match.params.serverId)})
+                }
+            }else {
+                this.setState({ selectedServer: this.props.user.server_ids[0] })
             }
         }
     }

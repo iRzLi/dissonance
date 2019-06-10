@@ -8,6 +8,7 @@ import CreateServerContainer from '../../components/server/create_server_contain
 import ServerModalContainer from '../../components/server/server_modal_container';
 import ServerLinkContainer from '../../components/server/server_link_container';
 import CreateRoomContainer from '../room/create_room_container';
+import SearchModalContainer from '../search/search_modal_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -26,6 +27,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'createRoom':
             component = <CreateRoomContainer />;
+            break;
+        case 'searchModal':
+            component = <SearchModalContainer />;
             break;
         default:
             return null;

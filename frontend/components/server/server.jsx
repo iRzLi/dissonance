@@ -1,5 +1,6 @@
 import React from 'react';
 import RoomContainer from '../room/room_container';
+import SearchContainer from '../search/search_container';
 
 class server extends React.Component{
     constructor(props){
@@ -74,9 +75,15 @@ class server extends React.Component{
             else{
                 //  all servers that are not the private server
                 if (this.props.selectedServer === server.id){
-                    return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} ><div className="selected-content">{firstChars(server.name)}</div><div className="selected-shifting-div"></div></li>
+                    return <li className="server-li-ele" id="selected-server" key={server.id} onClick={this.props.selectServer(server.id)} >
+                        <div className="selected-content">{firstChars(server.name)}</div>
+                        <div className="selected-shifting-div"></div>
+                        </li>
                 }else{
-                    return <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} ><div className="server-content">{firstChars(server.name)}</div><div className="shifting-div"></div></li>
+                    return <li className="server-li-ele" key={server.id} onClick={this.props.selectServer(server.id)} >
+                        <div className="server-content">{firstChars(server.name)}</div>
+                        <div className="shifting-div"></div>
+                        </li>
                 }
             }
         });
@@ -109,17 +116,25 @@ class server extends React.Component{
              * users can create a dm room in that container/component
              * also have the id for the private server so you can redirect them
              * 
+             * -----------------
+             * 
+             * Allow for users to search through users 
+             * through username and username number
+             * 
              */
             return  (
-                <div className="server-list-div">
-                <ul className="server-list">
-                    {ServerList}
-                    <li className="server-list-options" onClick={this.props.openModal} >
-                            <div className="server-content"><i className="fas fa-plus"></i></div>
-                            <div className="shifting-div"></div>
-                    </li>
-                </ul>
-                </div>
+                <>
+                    <div className="server-list-div">
+                        <ul className="server-list">
+                            {ServerList}
+                            <li className="server-list-options" onClick={this.props.openModal} >
+                                <div className="server-content"><i className="fas fa-plus"></i></div>
+                                <div className="shifting-div"></div>
+                            </li>
+                        </ul>
+                    </div>
+                <SearchContainer privateServer={this.props.myServer} />
+                </>
             );
         }
     }
