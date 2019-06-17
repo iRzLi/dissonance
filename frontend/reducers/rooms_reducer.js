@@ -6,15 +6,15 @@ import { RECEIVE_MESSAGE } from '../actions/message_actions';
 
 const roomsReducer = (state = {}, action) => {
     const oldState = Object.freeze(state);
+    let newState = merge({}, oldState);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return merge({}, oldState, action.res.rooms);
         case RECEIVE_CURRENT_SERVER:
             return merge({}, oldState, action.res.rooms);
         case RECEIVE_CURRENT_ROOM:
-            return merge({},oldState, action.res.rooms);
+            return merge({},oldState, {[action.res.room.id]: action.res.room});
         case REMOVE_CURRENT_ROOM:
-            let newState = merge({}, oldState);
             delete newState[action.roomId];
             return newState;
         case RECEIVE_USER_MSG:

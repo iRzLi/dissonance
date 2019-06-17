@@ -3,9 +3,11 @@ json.server do
 end
 
 json.users do
-    @server.users.each do |user|
-        json.set! user.id do
-            json.partial! './api/users/user', user: user
+    @users.each do |user|
+        if(user.servers.ids.include?(@server.id))
+            json.set! user.id do
+                json.partial! './api/users/user', user: user
+            end
         end
     end
 end

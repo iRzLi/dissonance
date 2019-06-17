@@ -9,3 +9,13 @@ json.messages do
         end
     end
 end
+
+json.users do
+    @users.each do |user|
+        if(user.servers.ids.include?(@room.server.id))
+            json.set! user.id do
+                json.partial! './api/users/user', user: user
+            end
+        end
+    end
+end

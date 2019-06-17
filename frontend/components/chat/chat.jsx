@@ -30,6 +30,11 @@ class Chat extends React.Component{
             }
         );
     }
+
+    componentDidUpdate(prevProps){
+        debugger
+    }
+    
     handleSubmit(e){
         e.preventDefault();
         this.props.createMessage(this.props.roomId, this.state).then(
@@ -97,7 +102,6 @@ class Chat extends React.Component{
     render() {
         let groupedMessages = [];
         let allMessages = this.props.messages.slice();
-        
         while (allMessages.length !== 0 && this.props.users[allMessages[0].user_id]){
             let bodies = [];
             let curr_user_id = allMessages[0].user_id;

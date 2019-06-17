@@ -33,6 +33,7 @@ export const getMyMessages = (state, roomId) => {
             }
         }
     );
+
     return message_arr.sort(compareIds);
 };
 

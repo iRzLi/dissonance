@@ -1,7 +1,7 @@
 class Api::MessagesController < ApplicationController
 
     def index
-        @messages = Room.find_by(id: params[:room_id]).messages
+        @messages = Room.find_by(id: params[:room_id]).messages.includes(:user)
         if(@messages)
             render :index
         else

@@ -16,7 +16,9 @@ class Api::ServersController < ApplicationController
     end
 
     def show
-        @server = Server.includes({rooms: :messages}, {users: :messages}).find_by(id: params[:id])
+        @server = Server.includes({rooms: :messages}, {users: [:messages, :servers]}).find_by(id: params[:id])
+        @users = User.includes(:messages, :servers).with_attached_profile_picture
+        # @users = User.includes(:messages).with_attached_profile_picture.joins(:servers).where("servers.id = ?", @server.id)
         if @server
             render :show
         else
