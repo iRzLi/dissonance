@@ -31,9 +31,6 @@ class Chat extends React.Component{
         );
     }
 
-    componentDidUpdate(prevProps){
-        debugger
-    }
     
     handleSubmit(e){
         e.preventDefault();

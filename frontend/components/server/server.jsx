@@ -12,39 +12,33 @@ class server extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        // if(this.props.myServer.public===true){
-        //     this.setState({ selectedRoom: this.props.myServer.room_ids[0]});
-        // }else {
-        //     this.setState({ selectedRoom: null });
-        // }
+
         if (prevProps.match.params.serverId !== this.props.match.params.serverId) {
-            this.setState({ selectedRoom: null});
+            this.setState({ selectedRoom: null });
+        }
+
+        if (prevProps.match.params.channelId !== this.props.match.params.channelId){
+
+            if (this.props.myServer
+                && this.props.myServer.room_ids.includes(parseInt(this.props.match.params["channelId"]))) {
+                this.setState({ selectedRoom: parseInt(this.props.match.params["channelId"]) });
+            } else {
+                this.setState({ selectedRoom: null });
+            }
         }
     }
 
     selectRoom(id) {
         return e => {
-            this.setState({mounted:false}, () => {
+            if (id !== this.state.selectedRoom) {
                 this.props.requestRoom(id).then(
-                    () => this.setState({ selectedRoom: id, mounted:true })
-                );
-            });
-            
-            // this.setState({selectRoom:id}, ()=>{
-            //     this.props.history.push(`/channel/${this.props.selectedServer}/${id}`);
-            // });
+                    () => {
+                            this.props.history.push(`/channel/${this.props.selectedServer}/${id}`);
+                    });
+            };
         };
     }
 
-    // componentDidMount(){
-    //     if(this.state.selectedRoom!==null){
-    //         this.setState({ mounted: false }, () => {
-    //             this.props.requestRoom(this.state.selectedRoom).then(
-    //                 () => this.setState({mounted: true })
-    //             );
-    //         });
-    //     }
-    // }
 
     render(){
         let ServerList = this.props.servers.map((server, i) => {

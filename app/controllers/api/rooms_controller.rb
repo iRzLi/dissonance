@@ -11,7 +11,7 @@ class Api::RoomsController < ApplicationController
     def show
         @room = Room.includes(:messages, {server: [:users]}).find_by(id: params[:id])
         # @room.server.users.with_attached_profile_picture
-        @users = User.includes(:servers).with_attached_profile_picture
+        @users = User.includes(:servers, :messages).with_attached_profile_picture
         if(@room)
             render :show
         else
