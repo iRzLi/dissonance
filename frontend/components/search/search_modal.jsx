@@ -5,10 +5,17 @@ class searchModal extends React.Component {
         super(props);
         this.state={searchString:""};
         this.onSearch = this.onSearch.bind(this);
+        this.onClickHandler = this.onClickHandler.bind(this);
     }
 
     onSearch(e){
         this.setState({searchString: e.target.value})
+    }
+
+    onClickHandler(id){
+        return function (e) {
+            console.log(id);
+        }
     }
 
     render(){
@@ -27,12 +34,12 @@ class searchModal extends React.Component {
                 if(this.state.searchString.includes("#")){
                     if (user.username.toLowerCase().includes(this.state.searchString.split("#")[0].toLowerCase())){
                         if (user.username_number.toString().includes(this.state.searchString.split("#")[1])) {
-                            return <li className="found-user-li" >{user.username}#{user.username_number}</li>
+                            return <li className="found-user-li" key={user.id} onClick={this.onClickHandler(user.id)} >{user.username}#{user.username_number}</li>
                         }
                     }
                 }else {
                     if (user.username.toLowerCase().includes(this.state.searchString.toLowerCase())) {
-                        return <li className="found-user-li" >{user.username}#{user.username_number}</li>
+                        return <li className="found-user-li" key={user.id} onClick={this.onClickHandler(user.id)} >{user.username}#{user.username_number}</li>
                     }
                 }
             })
@@ -42,7 +49,9 @@ class searchModal extends React.Component {
             <div id="searchModal">
                 <div>
                     <form>
-                        <input className="dark-input" onChange={this.onSearch} type="text" value={this.state.searchString}/>
+                        <input className="dark-input" onChange={this.onSearch}
+                         type="text" value={this.state.searchString}
+                         placeholder = "Guest#123"/>
                     </form>
                 </div>
                 <div id="searchResults">
