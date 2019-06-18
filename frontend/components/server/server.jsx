@@ -133,7 +133,7 @@ class server extends React.Component{
                             </li>
                         </ul>
                     </div>
-                <SearchContainer privateServer={this.props.myServer} />
+                {/* <SearchContainer privateServer={this.props.myServer} /> */}
                 </>
             );
         }
