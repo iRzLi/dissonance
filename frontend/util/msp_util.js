@@ -1,15 +1,17 @@
 export const getMyServers = (state) => {
     // return state.entities.servers[serverId];
     const userId = state.session.id;
-    const arr = [];
-    state.entities.users[userId].server_ids.forEach(serverId=>{
-        if (state.entities.servers[serverId] && state.entities.servers[serverId].public===false){
-            arr.push(state.entities.servers[serverId]);
-        }
-    });
+    let arr = [];
     state.entities.users[userId].server_ids.forEach(serverId => {
         if (state.entities.servers[serverId] && state.entities.servers[serverId].public === true) {
             arr.push(state.entities.servers[serverId]);
+        }
+    });
+    arr = arr.sort(compareIds);
+
+    state.entities.users[userId].server_ids.forEach(serverId => {
+        if (state.entities.servers[serverId] && state.entities.servers[serverId].public === false) {
+            arr.unshift(state.entities.servers[serverId]);
         }
     });
     return arr;
