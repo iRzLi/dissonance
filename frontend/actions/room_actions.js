@@ -2,11 +2,12 @@ import * as RoomUtil from '../util/room_api_util';
 
 export const RECEIVE_CURRENT_ROOM = 'RECEIVE_CURRENT_ROOM';
 export const REMOVE_CURRENT_ROOM = 'REMOVE_CURRENT_ROOM';
+import { receiveCurrentServer } from './server_actions';
 
 //  form needs :name and :server_id
 export const createRoom = (formRoom) => dispatch => {
     return RoomUtil.createRoom(formRoom).then(
-        (res) => dispatch(receiveCurrentRoom(res))
+        (res) => dispatch(receiveCurrentServer(res))
     );
 };
 
