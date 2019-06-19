@@ -15,6 +15,7 @@
 class Room < ApplicationRecord
     validates :name, :server_id, presence: true
     validates :general, inclusion: { in: [ true, false ] }
+    
     belongs_to :server,
     primary_key: :id,
     foreign_key: :server_id,

@@ -47,8 +47,17 @@ class User < ApplicationRecord
     class_name: :Message,
     dependent: :destroy
 
+    has_many :private_messages,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :PrivateMessage,
+    dependent: :destroy
 
 
+
+    def private_rooms
+        PrivateRoom.includes(:user1, :user2, :private_messages).where("user1_id = ? OR user2_id = ?", self.id, self.id);
+    end
 
 
     def ensure_username_number

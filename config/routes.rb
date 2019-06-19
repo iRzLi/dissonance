@@ -11,5 +11,9 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create, :show, :destroy] do
       resources :messages, only:[:index,:create,:show,:update,:destroy]
     end
+
+    resources :private_rooms, only: [:create, :index, :show] do
+      resources :private_messages, only: [:create, :index]
+    end
   end
 end

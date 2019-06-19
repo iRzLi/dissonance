@@ -29,3 +29,6 @@ room3 = Room.create!(name:"room3", server_id:publicServer.id, general: false)
 Message.create!(room_id:room1.id, user_id: guest.id, body:"HEY..")
 Message.create!(room_id:room1.id, user_id: guest.id, body:"HEY!!")
 Message.create!(room_id:room1.id, user_id: guest.id, body:"HEY??")
+
+private_room = PrivateRoom.create!(user1_id: admin.id, user2_id: guest.id)
+PrivateMessage.create!(private_room_id: private_room.id, user_id: guest.id, body:"HEY!!")

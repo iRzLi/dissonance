@@ -1,0 +1,1 @@
+json.extract! private_message, :id, :private_room_id, :user_id, :body, :created_at, :updated_at 
