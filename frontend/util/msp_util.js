@@ -42,3 +42,17 @@ export const getMyMessages = (state, roomId) => {
 function compareIds(a, b) {
     return a.id - b.id;
 }
+
+
+export const getMyPrivateRooms = (state) => {
+    if (state.entities.users[state.session.id].private_room_ids){
+        return state.entities.users[state.session.id].private_room_ids.map(
+            (roomId) => {
+                return state.entities.private_rooms[roomId];
+            }
+        );
+    } else {
+        return [];
+    }
+    
+};

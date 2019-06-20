@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     helper_method :logged_in?, :current_user
 
     def current_user
-        @current_user ||= User.includes( {servers: [:users,:rooms]}, :messages).with_attached_profile_picture.find_by(session_token: session[:session_token])
+        @current_user ||= User.includes( {servers: [:users,:rooms]}, :messages, :private_messages).with_attached_profile_picture.find_by(session_token: session[:session_token])
     end
 
     def login(user)

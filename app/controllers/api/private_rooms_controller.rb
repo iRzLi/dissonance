@@ -29,4 +29,8 @@ class Api::PrivateRoomsController < ApplicationController
         end
 
     end
+
+    def private_room_params
+        params.require(:private_room).permit(:user1_id,:user2_id)
+    end
 end

@@ -31,7 +31,13 @@ class Index extends React.Component {
     componentDidUpdate(prevProps){
         if (prevProps.match.params.serverId !== this.props.match.params.serverId){
             if (this.props.user.server_ids.includes(parseInt(this.props.match.params.serverId))){
-                this.props.requestServer(parseInt(this.props.match.params.serverId));
+                this.props.requestServer(parseInt(this.props.match.params.serverId)).then(
+                    res => {
+                        if(res.res.server.public === false){
+                            this.props.requestPrivateRooms();
+                        }
+                    }
+                );
                 if (this.state.selectedServer !== this.props.match.params.serverId ){
                     this.setState({ selectedServer: parseInt(this.props.match.params.serverId)})
                 }
@@ -48,11 +54,23 @@ class Index extends React.Component {
                     this.setState({
                         selectedServer: parseInt(this.props.match.params.serverId),
                     },()=>{
-                            this.props.requestServer(parseInt(this.props.match.params.serverId));
+                            this.props.requestServer(parseInt(this.props.match.params.serverId)).then(
+                                res => {
+                                    if (res.res.server.public === false) {
+                                        this.props.requestPrivateRooms();
+                                    }
+                                }
+                            );
                     });
                 }
                 else {
-                        this.props.requestServer(this.props.user.server_ids[0]);
+                    this.props.requestServer(this.props.user.server_ids[0]).then(
+                        res => {
+                            if (res.res.server.public === false) {
+                                this.props.requestPrivateRooms();
+                            }
+                        }
+                    );
                 }
                 
             }

@@ -12,8 +12,12 @@
 class PrivateRoom < ApplicationRecord 
 
     validates :user1_id, uniqueness: { scope: :user2_id }
-    
+    before_validation :diff_user_ids
     before_validation :sort_user_ids
+
+    def diff_user_ids
+        self.user1_id != self.user2_id
+    end
 
     # Force user1_id to be less than user2_id
     def sort_user_ids

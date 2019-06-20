@@ -4,6 +4,7 @@ import { requestCurrentUser } from '../../actions/session_actions';
 import IndexComponent from './index';
 import {withRouter} from 'react-router-dom';
 import { requestServer } from '../../actions/server_actions';
+import {requestPrivateRooms} from '../../actions/private_room_actions';
 
 const msp = (state) => {
     return {
@@ -15,6 +16,7 @@ const msp = (state) => {
 
 const mdp = dispatch => {
     return {
+        requestPrivateRooms: () => dispatch(requestPrivateRooms()),
         requestCurrentUser: id => dispatch(requestCurrentUser(id)),
         requestServer: id => dispatch(requestServer(id)),
     };

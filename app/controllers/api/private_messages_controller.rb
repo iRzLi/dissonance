@@ -9,7 +9,7 @@ class Api::PrivateMessagesController < ApplicationController
     end
 
     def create
-        @private_messages = Message.create(private_room_id: params[:private_room_id], user_id: current_user.id, body: params[:message][:body])
+        @private_messages = Message.create(private_room_id: params[:private_room_id], user_id: current_user.id, body: params[:private_message][:body])
         if(@private_messages.save)
             render :show
         else

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import * as PRUtil from './util/private_room_api_util';
+import * as PMUtil from './util/private_message_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -19,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
+
     window.store = store;
+    window.PRUtil = PRUtil;
+    window.PMUtil = PMUtil;
     ReactDOM.render(<Root store={store} />, root);
 });
