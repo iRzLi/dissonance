@@ -15,7 +15,6 @@ class searchModal extends React.Component {
 
     onClickHandler(id){
         return e => {
-            console.log(this.props)
             e.preventDefault();
             this.props.createPrivateRoom({
                 user1_id: this.props.sessionId,
@@ -32,11 +31,21 @@ class searchModal extends React.Component {
         }
     }
 
+    componentDidUpdate(){
+        if(this.state.errors!==null){
+            document.getElementById("PrivateRoomError").scrollIntoView();
+        }
+    }
+
 
     render(){
 
         let image = <img src={window.direction} className="picture direction" />;
 
+        let errorMsg = null;
+        if (this.state.errors !== null) {
+            errorMsg = <div id="PrivateRoomError">{this.state.errors}</div>
+        }
 
         const usersArr = Object.values(this.props.users);
         let foundUsers=[];
@@ -48,9 +57,7 @@ class searchModal extends React.Component {
             image = null;
             message = <li className="message">Searching through all users that you are currently in a server with</li>
             endingMessage = <div className="message ending-msg">Click on a user to start a conversation</div>
-            if (this.state.errors !== null) {
-                endingMessage = <div className="message ending-msg" id="PrivateRoomError">{this.state.errors}</div>
-            }
+            
             usersArr.forEach((user)=>{
                 if(this.state.searchString.includes("#")){
                     if (user.id !== this.props.sessionId && user.username.toLowerCase().includes(this.state.searchString.split("#")[0].toLowerCase())){
@@ -82,6 +89,7 @@ class searchModal extends React.Component {
                 <div id="searchResults">
                     {image}
                     <ul id="searchResultsList">
+                        {errorMsg}
                         {message}
                         {foundUsers}
                     </ul>

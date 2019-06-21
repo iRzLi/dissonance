@@ -24,7 +24,7 @@ export const receivePrivateMessages = res => {
 }
 
 export const requestPrivateMessages = roomId => dispatch => {
-    return MessageUtil.requestPrivateRoomMessages(roomId).then(
+    return PrivateMessageUtil.requestPrivateRoomMessages(roomId).then(
         (res) => dispatch(receivePrivateMessages(res))
     );
 };

@@ -54,5 +54,19 @@ export const getMyPrivateRooms = (state) => {
     } else {
         return [];
     }
+
     
+};
+
+
+export const getMyPrivateMessages = (state, roomId) => {
+    const message_arr = [];
+    state.entities.private_rooms[roomId].private_messages_ids.forEach(
+        messageId => {
+            if (state.entities.private_messages[messageId]) {
+                message_arr.push(state.entities.private_messages[messageId]);
+            }
+        }
+    );
+    return message_arr.sort(compareIds);
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PrivateChatContainer from '../chat/private_chat_container';
 
 class search extends React.Component {
     constructor(props){
@@ -20,6 +21,11 @@ class search extends React.Component {
             }
         }
 
+        if (this.state.selectedRoom === null && this.props.mySelf.private_room_ids
+            && this.props.mySelf.private_room_ids.includes(parseInt(this.props.match.params["channelId"]))) {
+            this.setState({ selectedRoom: parseInt(this.props.match.params["channelId"]) });
+        }
+
     }
 
 
@@ -28,7 +34,6 @@ class search extends React.Component {
             if (id !== this.state.selectedRoom) {
                 this.props.requestPrivateRoom(id).then(
                     (res) => {
-                        console.log(this.props);
                         this.props.history.push(`/channel/${this.props.privateServer.id}/${id}`);
                     });
             };
@@ -48,8 +53,12 @@ class search extends React.Component {
             localSelectedRoom = this.state.selectedRoom;
         }
 
+        let otherUser = null;
+
+
         let roomList = this.props.myPrivateRooms.map(room => {
             if (room.id === localSelectedRoom) {
+                otherUser = room.other_user_id;
                 return <li id="selectedRoomLi" onClick={this.selectRoom(room.id)} key={"private" +room.id}><i className="fas fa-hashtag"></i> <div><span>{room.name}</span> </div></li>;
             }
             else {
@@ -57,6 +66,11 @@ class search extends React.Component {
             }
 
         });
+
+        let chat = null
+        if (localSelectedRoom!==null){
+            chat = <PrivateChatContainer selectedRoomId={localSelectedRoom} otherUserId={otherUser} />
+        }
 
         return (
             <>
@@ -79,6 +93,8 @@ class search extends React.Component {
                         </ul>
                     </div>
                 </div>
+
+                {chat}
             </>
         )
         

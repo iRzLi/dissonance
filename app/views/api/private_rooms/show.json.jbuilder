@@ -7,14 +7,14 @@ json.users do
         json.set! @private_room.user1_id do
             json.partial! './api/users/user', user: current_user
             json.private_room_ids do
-                json.array! @my_private_rooms.ids
+                json.array! @my_private_rooms.ids.uniq
             end
         end
     else
         json.set! @private_room.user2_id do
             json.partial! './api/users/user', user: current_user
             json.private_room_ids do
-                json.array! @my_private_rooms.ids
+                json.array! @my_private_rooms.ids.uniq
             end
         end
     end

@@ -9,11 +9,11 @@ class Api::PrivateMessagesController < ApplicationController
     end
 
     def create
-        @private_messages = Message.create(private_room_id: params[:private_room_id], user_id: current_user.id, body: params[:private_message][:body])
-        if(@private_messages.save)
+        @private_message = PrivateMessage.create(private_room_id: params[:private_room_id], user_id: current_user.id, body: params[:private_message][:body])
+        if(@private_message.save)
             render :show
         else
-            render json: @private_messages.errors.full_messages, status: 422
+            render json: @private_message.errors.full_messages, status: 422
         end
     end
 end
