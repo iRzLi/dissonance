@@ -118,32 +118,6 @@ class room extends React.Component {
                 < ChatContainer selectedRoomId={localSelectedRoom} />
             </>
         )
-        // if (this.props.selectedRoom !== null) {....}
-        // else {
-        //     // DEFAULT ROOM
-        //     return (
-        //         <>
-        //             <ul className="room-list">
-        //                 <div id="roomNav"><span>{this.props.myServer.name}</span><i className="fas fa-angle-down"></i></div>
-        //                 <li id="room-list-middle">
-        //                     <div id="textChannels"><span><i className="fas fa-angle-down"></i>Text Channels</span><i className="fas fa-plus newRoomPlus"></i></div>
-        //                     <ul id="room-list-show-ul">
-        //                         {roomList}
-        //                     </ul>
-        //                 </li>
-        //                 <div id="roomBottom">
-        //                     <img id="roomProfilePic" src={window.profile_picture} />
-        //                     <div onClick={this.props.logout} id="logoutDoor"><i class="fas fa-door-open"></i></div>
-        //                     <ul>
-        //                         <li id="profile-name">{this.props.mySelf.username}</li>
-        //                         <li><span id="hashNum"><i className="fas fa-hashtag"></i>{this.props.mySelf.username_number}</span></li>
-        //                     </ul>
-        //                 </div>
-        //             </ul>
-        //             < ChatContainer selectedRoomId={this.props.rooms[0].id} />
-        //         </>
-        //     )
-        // }
 
     }
 }

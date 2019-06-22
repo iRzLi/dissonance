@@ -59,10 +59,10 @@ class search extends React.Component {
         let roomList = this.props.myPrivateRooms.map(room => {
             if (room.id === localSelectedRoom) {
                 otherUser = room.other_user_id;
-                return <li id="selectedRoomLi" onClick={this.selectRoom(room.id)} key={"private" +room.id}><i className="fas fa-hashtag"></i> <div><span>{room.name}</span> </div></li>;
+                return <li id="selectedRoomLi" onClick={this.selectRoom(room.id)} key={"private" +room.id}><i className="fas fa-at"></i> <div><span>{room.name}</span> </div></li>;
             }
             else {
-                return <li className="noneSelected" onClick={this.selectRoom(room.id)} key={"private"+room.id}><i className="fas fa-hashtag"></i> <div><span>{room.name}</span> </div></li>;
+                return <li className="noneSelected" onClick={this.selectRoom(room.id)} key={"private" + room.id}><i className="fas fa-at"></i> <div><span>{room.name}</span> </div></li>;
             }
 
         });
@@ -79,7 +79,7 @@ class search extends React.Component {
                         <div onClick={this.props.openModal} >Start a conversation</div>
                     </div>
                     <div id="directMessagesDiv">
-                        <div id="DMText"><span>Direct Messages</span></div>
+                        <div id="DMText"><span>Direct Messages <i className="fas fa-sync" onClick={this.props.requestPrivateRooms}></i><div id="refresh">Refresh List</div></span></div>
                         <ul id="DM-ul">
                             {roomList}
                         </ul>

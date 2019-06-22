@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Header from './header';
 import {logout} from '../../actions/session_actions';
+import { withRouter } from 'react-router-dom';
 
 
 const msp = state => {
@@ -17,4 +18,4 @@ const mdp = dispatch => {
 
 
 
-export default connect(msp,mdp)(Header);
+export default withRouter(connect(msp, mdp)(Header));

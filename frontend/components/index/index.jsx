@@ -68,6 +68,8 @@ class Index extends React.Component {
                         res => {
                             if (res.res.server.public === false) {
                                 this.props.requestPrivateRooms();
+                            }else {
+                                this.props.history.push(`/channel/${res.res.server.id}`);
                             }
                         }
                     );

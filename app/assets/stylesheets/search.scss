@@ -73,11 +73,10 @@
     height: 32px;
 };
 
-#DM-ul li .fa-hashtag {
+#DM-ul li .fa-at{
     margin-left: 10px;
     margin-right: 6px;
 }
-
 /*************************
 Search Modal
 *************************/
@@ -160,4 +159,28 @@ Search Modal
     font-style: italic;
     padding-left: 9px;
     margin: 5px 0px;
+}
+
+.fa-sync {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.fa-sync:hover + #refresh {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    left: 145px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    top: 32px;
+    text-transform: capitalize;
+}
+
+
+#refresh {
+    display: none;
 }

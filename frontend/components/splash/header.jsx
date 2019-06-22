@@ -3,6 +3,12 @@ import {Link} from 'react-router-dom';
 import LoginLogoutContainer from '../session/login_logout_container';
 const header = (props) => {
 
+    let goToChat = null;
+    if (props.loggedIn){
+        goToChat = (<span className="login-link" onClick={(e) => {
+            props.history.push("/channel/me")
+        }} >Open</span>)
+    }
     return (
         <>
         <nav className="header">
@@ -13,6 +19,7 @@ const header = (props) => {
                 <ul className="header-icons">
                         <li><a href="https://github.com/iRzLi/dissonance"><i className="fab fa-github"></i></a></li>
                 </ul>
+                    <li>{goToChat}</li>
                     <li><LoginLogoutContainer /></li>
             </ul>
         </nav>
