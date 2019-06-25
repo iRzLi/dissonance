@@ -5,10 +5,12 @@
 .splash-pictures {
     grid-row-start: 3;
     grid-row-end: 4;
-    display:flex;
     // justify-content: flex-end;
-    align-items: flex-end;
     // position: relative;
+    display: -webkit-flex;
+    display:flex;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
 }
 
 .wide-screen-pictures{
