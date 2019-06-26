@@ -1,8 +1,9 @@
 class Api::PrivateRoomsController < ApplicationController
     def create
         @private_room = PrivateRoom.create(private_room_params)
+        debugger
         if(@private_room.save)
-            redirect_to api_private_rooms(@private_room)
+            redirect_to api_private_rooms_url(@private_room)
         else
             render json: @private_room.errors.full_messages, status: 422
         end
