@@ -2,15 +2,29 @@
     SPLASH PICTURE COMPONENT
 ***************************/
 
+// .splash-pictures {
+//     grid-row-start: 3;
+//     grid-row-end: 4;
+//     // justify-content: flex-end;
+//     // position: relative;
+//     display: -webkit-flex;
+//     display:flex;
+//     -webkit-align-items: flex-end;
+//     align-items: flex-end;
+// }
 .splash-pictures {
-    grid-row-start: 3;
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-row-span: 1;
     grid-row-end: 4;
     // justify-content: flex-end;
     // position: relative;
-    display: -webkit-flex;
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
 }
 
 .wide-screen-pictures{
@@ -21,6 +35,8 @@
 
 .picture {
     position: absolute;
+    align-self: flex-end;
+    bottom: 250px;
 }
 
 
