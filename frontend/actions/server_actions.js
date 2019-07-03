@@ -6,7 +6,6 @@ export const REMOVE_CURRENT_SERVER = 'REMOVE_CURRENT_SERVER';
 export const RECEIVE_JOIN_SERVER_ERROR = 'RECEIVE_JOIN_SERVER_ERROR';
 // export const SERVER_ERRORS = 'SERVER_ERRORS';
 
-
 //  user id is from current_user on the backend
 export const createServer = (formServer) => dispatch => {
     return ServerUtil.createServer(formServer).then(

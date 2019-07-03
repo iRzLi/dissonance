@@ -7,8 +7,8 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     channel_name = "server#{data['id']}"
-    # obj = {message: data['message'], user: data['user'] }
-    # ChatChannel.broadcast_to(channel_name, obj)
+    obj = {server: data['server'], rooms: data['rooms']}
+    RoomChannel.broadcast_to(channel_name, obj)
   end
 
   def unsubscribed

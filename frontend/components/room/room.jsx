@@ -11,6 +11,28 @@ class room extends React.Component {
         this.showDrop = this.showDrop.bind(this);
     }
 
+    componentDidMount() {
+        App.server = App.cable.subscriptions.create(
+            { channel: "RoomChannel", id: this.props.selectedServerId },
+            {
+                received: obj => {
+                    let roomsObj = {};
+                    obj.rooms.forEach(room=>{
+                        roomsObj[room.id] = room;
+                    })
+                    let res = {
+                        server: obj.server,
+                        rooms: roomsObj,
+                    }
+                    this.props.receiveCurrentServer(res);
+                },
+                speak: function (serverObj) {
+                    return this.perform("speak", serverObj);
+                }
+            }
+        );
+    }
+
     showDrop(){
         if(this.state.clicked===false){
             this.setState({clicked:true});
@@ -24,9 +46,45 @@ class room extends React.Component {
         this.props.invite();
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
         if (this.props.sessionId === this.props.myServerAdmin){
             document.getElementById("textChannels").scrollIntoView();
+        }
+
+
+        if (prevProps.selectedServerId !== this.props.selectedServerId ){
+            App.server.unsubscribe();
+            App.server = App.cable.subscriptions.create(
+                { channel: "RoomChannel", id: this.props.selectedServerId },
+                {
+                    received: obj => {
+                        let roomsObj = {};
+                        obj.rooms.forEach(room => {
+                            roomsObj[room.id] = room;
+                        })
+                        let res = {
+                            server: obj.server,
+                            rooms: roomsObj,
+                        }
+                        this.props.receiveCurrentServer(res);
+                    },
+                    speak: function (serverObj) {
+                        return this.perform("speak", serverObj);
+                    }
+                }
+            );
+        }
+
+
+        if (prevProps.selectedServerId === this.props.selectedServerId && 
+            prevProps.rooms.length !== this.props.rooms.length){
+            App.server.speak({ id: this.props.selectedServerId, server: this.props.myServer, rooms:this.props.rooms});
+        }
+    }
+
+    componentWillUnmount() {
+        if (App.server) {
+            App.server.unsubscribe();
         }
     }
 

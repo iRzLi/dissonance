@@ -45,5 +45,5 @@ Dissonance was built using React/Redux, and Javascript for the frontend; Ruby on
 
 ## Future features
 
-* Private/direct messages
+* ~~Private/direct messages~~
 * Link up with aws so users can change their profile pictures

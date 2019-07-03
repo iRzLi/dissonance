@@ -4,6 +4,7 @@ import { requestRoom } from '../../actions/room_actions';
 import RoomComponent from './room';
 import { getMyRooms } from '../../util/msp_util';
 import { openModal } from '../../actions/modal_actions';
+import { receiveCurrentServer } from '../../actions/server_actions';
 
 const msp = (state, ownProps) => {
     return {
@@ -25,6 +26,7 @@ const mdp = dispatch => {
         logout: () => dispatch(openModal("logout")),
         invite: () => dispatch(openModal('serverLink')),
         createRoom: () => dispatch(openModal('createRoom')),
+        receiveCurrentServer: obj => dispatch(receiveCurrentServer(obj)),
     };
 };
 
