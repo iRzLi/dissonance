@@ -8,21 +8,21 @@ end
 
 
 json.users do
-    if(@private_rooms[0].user1.id == current_user.id)
+    # if(@private_rooms[0].user1.id == current_user.id)
+    #     json.set! current_user.id do
+    #         json.partial! './api/users/user', user: current_user
+    #         json.private_room_ids do
+    #             json.array! @private_rooms.ids
+    #         end
+    #     end
+    # else
         json.set! current_user.id do
             json.partial! './api/users/user', user: current_user
             json.private_room_ids do
                 json.array! @private_rooms.ids
             end
         end
-    else
-        json.set! current_user.id do
-            json.partial! './api/users/user', user: current_user
-            json.private_room_ids do
-                json.array! @private_rooms.ids
-            end
-        end
-    end
+    # end
 end
 
 json.private_messages do
