@@ -10,7 +10,7 @@ json.servers do
     end
 end
 
-
+# don't need this for a refresh
 # json.users do
 #     @user.servers.each do |server|
 #         server.users.each do |user|
@@ -21,6 +21,7 @@ end
 #     end
 # end
 
+# Pulling room data and their message ids but not the messages themveslves
 json.rooms do
     @user.servers.each do |server|
         server.rooms.each do |room|
@@ -31,6 +32,7 @@ json.rooms do
     end
 end
 
+# Was here to test my messages but its included into room show now
 # json.messages do
 #     @user.messages.each do |message|
 #         json.set! message.id do

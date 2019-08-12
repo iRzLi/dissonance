@@ -8,6 +8,8 @@ end
 
 
 json.users do
+    # Was checking for user id but its undeed now
+    # Was originally thinking about setting it for all users but you only need the provate room ids for the current_user
     # if(@private_rooms[0].user1.id == current_user.id)
     #     json.set! current_user.id do
     #         json.partial! './api/users/user', user: current_user
@@ -16,6 +18,7 @@ json.users do
     #         end
     #     end
     # else
+    # 
         json.set! current_user.id do
             json.partial! './api/users/user', user: current_user
             json.private_room_ids do
