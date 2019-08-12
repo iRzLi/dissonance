@@ -28,12 +28,12 @@ json.rooms do
     end
 end
 
-json.messages do 
-    @users.each do |user|
-        user.messages.each do |message|
-            json.set! message.id do
-                json.partial! './api/messages/message', message: message
-            end
-        end
-    end
-end
+# json.messages do 
+#     @users.each do |user|
+#         user.messages.each do |message|
+#             json.set! message.id do
+#                 json.partial! './api/messages/message', message: message
+#             end
+#         end
+#     end
+# end

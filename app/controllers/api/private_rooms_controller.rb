@@ -21,7 +21,6 @@ class Api::PrivateRoomsController < ApplicationController
 
     def index
         @private_rooms = current_user.private_rooms
-        # @allPrivateRooms = PrivateRoom.all
         if(@private_rooms)
             render :index
         else

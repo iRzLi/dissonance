@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController
 
+    before_action :ensure_logged_in, only: [:index, :create]
+
     def index
         @users = User.all.includes({servers: [:users, :rooms]}, :messages).with_attached_profile_picture
         # @users = User.all
