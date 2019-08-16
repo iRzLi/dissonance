@@ -10,16 +10,16 @@ json.servers do
     end
 end
 
-# don't need this for a refresh
-# json.users do
-#     @user.servers.each do |server|
-#         server.users.each do |user|
-#             json.set! user.id do
-#                 json.partial! './api/users/user', user: user
-#             end
-#         end
-#     end
-# end
+# refactor this to only include private users
+json.users do
+    @user.servers.each do |server|
+        server.users.each do |user|
+            json.set! user.id do
+                json.partial! './api/users/user', user: user
+            end
+        end
+    end
+end
 
 # Pulling room data and their message ids but not the messages themveslves
 json.rooms do
